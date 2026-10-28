@@ -1,0 +1,455 @@
+/* ==========================================================================
+   STYLE DLA PODSTRONY KONTAKTOWEJ I JEJ FORMULARZY
+   Plik: form-style.css
+   ========================================================================== */
+
+/* --- 1. Układ Sekcji Kontaktowej --- */
+
+
+.sticky-column-wrapper {
+    align-items: flex-start;
+    position: relative;
+}
+
+.grecaptcha-badge {
+    z-index: 2000;
+}
+
+@media (min-width: 768px) {
+    .sticky-column {
+        position: -webkit-sticky;
+        position: sticky;
+        top: calc(2 * var(--grid-margin) + var(--logo-height));
+    }
+}
+
+@media (min-width: 1740px) {
+    .sticky-column {
+        top: var(--grid-margin);
+    }
+}
+
+.sticky-column > *:first-child {
+    margin-top: calc(2 * var(--logo-height)); 
+}
+
+.contact-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    
+}
+
+.contact-option-btn {
+    font-family: var(--font-family-base);
+    font-size: var(--font-xs);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid #aa9ae5;
+    background-color: #aa9ae5;
+    color: #312952;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+.contact-option-btn:hover {
+    border-color: #8c7bce;
+    background-color: #8c7bce;
+    color: #19162c;
+}
+.contact-option-btn.active {
+    background-color: #e0e0de;
+    color: #60605e;
+    border-color: #e0e0de;
+}
+.contact-option-btn:active {
+    transform: scale(0.95);
+}
+
+.contact-options:has(.contact-option-btn.active) .contact-option-btn:not(.active) {
+    background-color: transparent;
+    border-color: #dddddd;
+    color: #c2c2c0;
+}
+
+.contact-options:has(.contact-option-btn.active) .contact-option-btn:not(.active):hover {
+    border-color: #a09f9d;
+    color: #787879;
+    background-color: #f5f4f3;
+}
+
+.contact-prompt {
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    overflow: hidden;
+    max-height: 50px;
+    opacity: 1;
+}
+.contact-prompt.is-hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0 !important;
+}
+
+.contact-panels {
+    position: relative;
+    /* overflow: hidden; <<< TA WŁAŚCIWOŚĆ BYŁA PROBLEMEM - USUWAMY JĄ */
+}
+
+.contact-panel {
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flow-root;
+}
+
+/* Opcjonalnie, ale zalecane - reset marginesów dla pierwszego i ostatniego dziecka */
+.contact-panel > form > *:first-child {
+    margin-top: 0;
+}
+.contact-panel > form > *:last-child {
+    margin-bottom: 0;
+}
+
+/* --- 2. Ogólne Style Formularzy --- */
+
+#form-projekt, #form-wspolpraca, #form-ogolne {
+    margin-top: 2rem;
+}
+
+.form-group {
+    position: relative;
+    margin-top: 4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 2px 0; 
+    font-size: var(--font-s);
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    color: var(--black-color-font);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+    overflow: hidden;
+    display: block; 
+}
+
+.form-group label {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-size: var(--font-s);
+    color: var(--black-color-font);
+    font-weight: 400;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group .base-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e1e1e1;
+    z-index: 0;
+}
+
+.form-group .focus-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.form-group input:focus ~ .focus-line,
+.form-group textarea:focus ~ .focus-line {
+    transform: scaleX(1);
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: -24px;
+    font-size: var(--font-xs);
+    color: var(--gray-color-font);
+}
+
+.form-row {
+    display: block;
+}
+
+@media (min-width: 1400px) {
+    .form-row {
+        display: flex;
+        gap: 2rem;
+    }
+    .form-row .form-group {
+        flex: 1;
+    }
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-footer {
+
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.form-submit-wrapper {
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+.form-consent {
+    margin-bottom: 0;
+    margin-top: 24px;
+}
+.form-consent p {
+    font-size: var(--font-xs);
+    color: var(--gray-color-font);
+    line-height: 1.2;
+    margin: 0;
+}
+.form-consent a {
+    color: #777;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.form-consent a:hover {
+    color: var(--black-color-font);
+}
+
+.modern-cta[type="submit"] {
+    cursor: pointer;
+    border: none;
+}
+
+.form-messages {
+    margin-top: 1.5rem;
+    font-size: var(--font-s);
+}
+.form-messages.success { color: #28a745; }
+.form-messages.error { color: #dc3545; }
+
+
+/* --- 3. Style dla Interaktywnych Selektorów --- */
+
+.form-interactive-selector {
+    position: relative;
+
+    cursor: pointer;
+    margin-top: calc(4rem - 24px);
+    padding-top: 24px;
+    transition: margin-bottom 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.selector-label-area {
+    position: relative;
+    height: 24px;
+}
+
+.form-interactive-selector.is-open .selector-label-area,
+.form-interactive-selector.is-selected .selector-label-area {
+    height: 8px;
+}
+
+.selector-label-area {
+    position: relative;
+    height: 24px;
+    transition: height 0.3s ease;
+}
+
+
+.selector-base-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e1e1e1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Label startuje na dole obszaru (przy linii) — jak input */
+.selector-label {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    font-size: var(--font-s);
+    color: var(--black-color-font);
+    transition: top 0.3s ease,
+                font-size 0.3s ease,
+                color 0.3s ease;
+    cursor: pointer;
+}
+
+.selector-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-top: 0;
+    transform: translateY(12px);
+    transition: max-height 0.9s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.4s ease,
+                padding-top 0.5s ease,
+                transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Logika animacji --- */
+.form-interactive-selector.is-open .selector-buttons {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: -2rem;
+    margin-bottom: 2.5rem;
+    transform: translateY(0);
+}
+
+/* Label leci w górę, linia unosi się i znika */
+.form-interactive-selector.is-open .selector-label,
+.form-interactive-selector.is-selected .selector-label {
+    top: -24px;
+    font-size: var(--font-xs);
+    color: var(--gray-color-font);
+}
+
+.form-interactive-selector.is-open .selector-base-line,
+.form-interactive-selector.is-selected .selector-base-line {
+    opacity: 0;
+    transform: translateY(-24px);
+}
+
+.form-interactive-selector.is-open,
+.form-interactive-selector.is-selected {
+    margin-bottom: 2.5rem;
+}
+
+
+/* Style przycisków */
+.selector-btn {
+    font-size: var(--font-xs);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #eae9e8;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Style aktywne (oddzielne) */
+.service-btn.active {
+    color: var(--black-color-font);
+    animation: color-cycle2 2s linear infinite;
+}
+.budget-btn.active {
+    animation: color-cycle2 2s linear infinite;
+    color: var(--black-color-font);
+}
+
+.form-intro-text {
+    color: #dadad8;
+    font-size: var(--font-m);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 6rem;
+    max-width: 60ch; /* Ograniczenie szerokości dla lepszej czytelności */
+}
+
+/* ==========================================================================
+   STYLE DLA DYMKÓW WALIDACYJNYCH
+   ========================================================================== */
+
+.validation-tooltip {
+    position: absolute;
+    bottom: -60px; /* Pozycja pod linią pola */
+    left: 0;
+    
+    background-color:#ffd903;
+    color: #000000;
+    padding: 1rem 1.5rem;
+
+    border-radius: 20px;
+
+    
+    font-size: var(--font-xs);
+    white-space: nowrap;
+    
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    /* Na starcie ukryty */
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+/* "Strzałka" dymka */
+.validation-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Pozycjonowanie nad dymkiem */
+    left: 30px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffd903;
+    transform: rotate(45deg);
+}
+
+/* Ikona wykrzyknika */
+.validation-tooltip .icon {
+    width: 16px;
+    height: 16px;
+    background-color: #000000; /* Pomarańczowy */
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Stan widoczny */
+.validation-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+h4.with-icon {
+    display: flex;
+    align-items: center; 
+    gap: 12px;
+}
+
+h4.with-icon .title-icon {
+    height: 1.4em;
+    width: auto;
+    flex-shrink: 0;
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafał Kurek - Brand Designer</title>
+    <link rel="preload" href="webfonts/DesignerSans.otf" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset-and-typo.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/gallery-layered.css">
+</head>
+<body>
+
+    <div class="page-transition-overlay"></div>
+
+    <div class="preloader" style="--preloader-bg: #c1c1c1; --preloader-purple: #000000;">
+        <div class="preloader-layer preloader-layer--purple"></div>
+        <div class="preloader-layer preloader-layer--main">
+            <div class="preloader-content">
+                <div class="preloader-words">
+                    <span class="word active">INSIGHT</span>
+                    <span class="word">STRATEGY</span>
+                    <span class="word">CREATE</span>
+                    <span class="word">IMPACT</span>
+                </div>
+                <div class="preloader-status">
+                    <p class="czarne">Proszę czekać</p>
+                    <p class="czarne"><span id="percentage">0</span>%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-mask-container">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-black.svg" alt="Logo RK" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-mask-container logo-white-version">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-white.svg" alt="" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-text-container">
+        <p class="logo-descriptor"></p>
+    </div>
+
+    <div class="scroll-progress-indicator"></div>
+    <div class="scroll-progress-percentage">
+        <span id="scroll-percentage-value">0</span>%
+    </div>
+
+    <div class="custom-scrollbar">
+        <div class="scrollbar-thumb"></div>
+    </div>
+
+    <button class="menu-toggle-btn" aria-label="Przełącz nawigację" aria-controls="menu-overlay" aria-expanded="false">
+        <div class="menu-toggle-label-wrapper">
+            <div class="menu-toggle-label-inner">
+                <span class="menu-toggle-label-closed">MENU</span>
+                <span class="menu-toggle-label-open">WRÓĆ</span>
+            </div>
+        </div>
+    </button>
+
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-hidden="true">
+        <div class="menu-overlay-header">
+            <a href="/" aria-label="Strona główna">
+                <img src="svg/logo-short-white.svg" alt="Logo RK" class="menu-overlay-logo">
+            </a>
+        </div>
+        <nav class="menu-overlay-nav" aria-label="Nawigacja główna">
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="omnie.html">O mnie</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="menu-overlay-footer">
+            <p>Jestem Rafał. Od 20 lat projektuję marki, które pracują na wyniki i pozostają w pamięci.</p>
+        </div>
+    </div>
+        
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p class="cookie-text">
+                Ta strona używa ciasteczek.<br>
+                <a href="/polityka-prywatnosci">Czytaj więcej.</a>
+            </p>
+            <button class="cookie-accept-button magnetic-item" id="cookieAcceptBtn">AKCEPTUJ</button>
+        </div>
+    </div>
+
+    <div class="logo-hover-cursor" aria-hidden="true">
+        <img src="smile.svg" alt="Uśmiechnięta ikona">
+    </div>
+    <div class="video-close-cursor" aria-hidden="true">
+        <span class="close-text">zamknij</span>
+    </div>
+
+    <div class="page-wrapper">
+        <header class="main-header">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="js-reveal-nav-item">Portfolio</a></li>
+                    <li><a href="omnie.html" class="js-reveal-nav-item">O Mnie</a></li>
+                    <li><a href="kontakt.html" class="js-reveal-nav-item">Kontakt</a></li>
+                </ul>
+                <div class="icon-mask-wrapper">
+                    <a href="#" class="nav-icon-link js-reveal-nav-item" aria-label="Link specjalny">
+                        <img src="svg/wow1.svg" class="icon-base" alt="">
+                        <img src="svg/wow2.svg" class="icon-hover" alt="">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="content clearfix">
+            <div id="hero"></div>
+
+            <div class="project-hero-container section section-dark-bg js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div id="image-spawn-area"></div>
+
+                <section class="project-hero-title-section">
+                    <img src="img/omnie.svg" alt="" class="spawn-area-background">
+                </section>
+
+                <section data-header-text="BRAND and WEB DESIGNER" class="contact-section section small section-light grid-row js-menu-trigger" data-logo-theme="dark">
+                    <div class="sto_full top80">
+                        <div class="one_half">
+                            <div class="one flex">
+                                <div>
+                                    <h1 class="js-stylize-letters">
+                                        Jestem Rafał. Od 20 lat projektuję marki, które pracują na wyniki i pozostają w pamięci.
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="one flex top80">
+                                <div class="one_half">
+                                    <p class="width35">To nie tylko lata praktyki – to fundament, na którym buduję każdy projekt. Fundament oparty na przekonaniu, że w dobrym designie nie ma miejsca na przypadek. Jest za to głębokie zrozumienie celów biznesowych.</p>
+                                </div>
+                                <div class="one_half">
+                                    <p class="width35">Współpracuję z firmami, które traktują design jako inwestycję, nie koszt. Z tymi, których ambicje przerosły dotychczasowy wizerunek, a marka nie komunikuje tego, co firma już osiągnęła.</p>
+                                </div> 
+                            </div>  
+                        </div>
+                        <div class="one_fourth">
+                            <img src="img/omnie02.webp" alt="O mnie">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section id="services-section" class="section-light js-color-section" data-bg-color="#f9f9f9" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full top80">
+                    <p>W czym mogę Ci pomóc.</p>
+                    <div class="accordion-wrapper" id="accordion-main"> 
+                        <div class="accordion-item" data-category="investors">
+                            <div class="accordion-header">
+                                <div class="title-group">
+                                    <div class="arrow-mask">
+                                        <svg class="arrow-icon-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h2>Strategia marki</h2>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="accordion-content-inner">
+                                        Silna marka zaczyna się od strategii. To ona określa, kim jesteś, do kogo mówisz i czym się wyróżniasz. Bez niej design staje się zbiorem przypadkowych decyzji, osobistych upodobań i przemijających trendów. Ze strategią każdy element wizualny ma swoje uzasadnienie i pracuje na konkretny cel.
+                                    </div>
+                                </div>
+                                <div class="icon-plus"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-category="sustainability">
+                            <div class="accordion-header">
+                                <div class="title-group">
+                                    <div class="arrow-mask">
+                                        <svg class="arrow-icon-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h2>Branding</h2>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="accordion-content-inner">
+                                        Branding to więcej niż logo. To spójny system wizualny, który buduje rozpoznawalność Twojej marki na każdym punkcie styku z klientem. Nazwa, znak, kolorystyka, typografia, key visual i zasady ich stosowania. Wszystko zaprojektowane tak, żeby Twoja marka mówiła jednym głosem.
+                                    </div>
+                                </div>
+                                <div class="icon-plus"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-category="news">
+                            <div class="accordion-header">
+                                <div class="title-group">
+                                    <div class="arrow-mask">
+                                        <svg class="arrow-icon-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h2>Web design</h2>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="accordion-content-inner">
+                                        Strona internetowa to często pierwszy kontakt klienta z Twoją marką. Projektuję doświadczenia cyfrowe, które nie tylko wyglądają dobrze, ale prowadzą użytkownika dokładnie tam, gdzie powinien się znaleźć. Każda decyzja projektowa wynika ze strategii marki i służy konkretnemu celowi biznesowemu.
+                                    </div>
+                                </div>
+                                <div class="icon-plus"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="physics-canvas"></div>
+            </section>
+
+            <section class="section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full top80">
+                    <div class="one">
+                        <p>Jak wygląda mój proces</p>
+                    </div>
+                    
+                    <div class="one_half process-left-column">
+                        <h3 class="js-stylize-letters width30">
+                            Działam samodzielnie, a przy większych wyzwaniach dobieram do projektu zewnętrznych specjalistów. To gwarantuje skalowalność i najwyższą jakość na każdym etapie projektu.
+                        </h3>
+                    </div>
+
+                    <div class="one_fourth flex">
+                        <div class="one_half"></div>
+                        <div class="one_half">
+                            <div class="process-titles-list">
+                                <button class="process-title-btn is-active" data-index="0"><span class="onefour">1</span> Zrozumienie</button>
+                                <button class="process-title-btn" data-index="1"><span class="onefour">2</span> Kierunek</button>
+                                <button class="process-title-btn" data-index="2"><span class="onefour">3</span> Forma</button>
+                                <button class="process-title-btn" data-index="3"><span class="onefour">4</span> Realizacja</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="one_fourth">
+                        <div class="process-anim-group">
+                            <p class="process-desc width30" id="proc-desc">Każdy projekt zaczynam od poznania Twojego biznesu, celów i wyzwań. Dobry design wymaga kontekstu.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fullscreen-sr-section section-dark-bg js-color-section top160" data-bg-color="#f9f9f9" data-font-color="#090909" data-logo-theme="light">
+                <div class="sr-mask-container">
+                    <img src="img/kingdesign01.webp" alt="Showreel" class="sr-bg-image">
+                    <div class="showreel-cursor">
+                        <div class="cursor-visual">
+                            <span>Zobacz<br>Showreel</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-light js-color-section" data-bg-color="#f9f9f9" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full top160">
+                    <p>Oni mi zaufali.</p>
+                </div>
+                <div class="social-proof-grid">
+                    <div class="testimonial-card" data-quote="Proces przekonywania do zmiany nie był łatwy, jednak ostateczny efekt pokazał, że połączenie tradycji i świeżego spojrzenia może przynieść znakomite rezultaty, które wpisują się w dynamiczny rozwój marki.">
+                        <p class="quote-text"></p>
+                        <div class="author-area">
+                            <img src="img/cyt01.png" alt="Michał Nowak" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Michał Nowak</span>
+                                <span class="author-role">Manager</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-quote="Współpraca z Rafałem to czysta przyjemność. Jego dbałość o detale na każdym etapie projektowania sprawia, że finalny produkt jest nie tylko estetyczny, ale i wysoce funkcjonalny, co doceniają nasi klienci każdego dnia.">
+                        <p class="quote-text"></p>
+                        <div class="author-area">
+                            <img src="img/cyt03.png" alt="Anna Kowalska" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Anna Kowalska</span>
+                                <span class="author-role">CEO, TechFlow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-quote="Początkowo obawialiśmy się całkowitego rebrandingu, jednak strategiczne podejście i głębokie zrozumienie naszej misji biznesowej pozwoliły stworzyć wizerunek idealnie dopasowany do współczesnych realiów rynkowych.">
+                        <p class="quote-text"></p>
+                        <div class="author-area">
+                            <img src="img/cyt02.png" alt="Piotr Wiśniewski" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Piotr Wiśniewski</span>
+                                <span class="author-role">Marketing Director</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-quote="Największym wyzwaniem było dla nas połączenie minimalizmu z bogatą historią firmy. Dzięki odpowiedniemu doborowi typografii i układu, nasz nowy design natychmiast przyciąga uwagę i budzi zaufanie odbiorców.">
+                        <p class="quote-text"></p>
+                        <div class="author-area">
+                            <img src="img/cyt04.png" alt="Katarzyna Lis" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Katarzyna Lis</span>
+                                <span class="author-role">Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-header-text="KILKA SŁÓW O MNIE" class="section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full top240">
+                    <div class="one_half">
+                        <p class="width35">
+                            Zaczynałem w agencji, gdzie poznałem realia produkcji i nauczyłem się pracować pod presją deadline'ów. Później, prowadząc własne studio King Design, zrozumiałem, że najskuteczniejszy design to ten, który wyrasta ze zrozumienia biznesu klienta i rozwiązuje jego konkretne problemy. 
+                        </p>
+                        <p class="width30">
+                            Bliski jest mi sposób myślenia, który Antoine de Saint-Exupéry ujął w słowach: 
+                        </p>
+                    </div>
+                    <div class="one_half">
+                        <h3 class="js-stylize-letters width35">
+                            „Doskonałość jest osiągnięta nie wtedy, kiedy nie ma nic do dodania, ale kiedy nie ma nic do ujęcia." To przekonanie o sile prostoty i precyzji jest rdzeniem mojej pracy.
+                        </h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scroll-section section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="gallery-section">
+                    <div class="gallery-header sto_full top80">
+                        <div class="one_half">
+                            <h2 class="gallery-title">Poza designem.<br>Kim jestem po godzinach.</h2>
+                        </div>
+                        <div class="one_half gallery-info-box">
+                            <p class="gallery-info-text width30">Zdjęcia prywatne<br>oraz z moich social mediów.</p>
+                            <a id="btn-next" class="gallery-simple-btn desktop-only">
+                                <span class="gallery-arrow-group">
+                                    <span class="gallery-arrow arrow-1"></span>
+                                    <span class="gallery-arrow arrow-2"></span>
+                                </span>
+                                <span class="gallery-btn-text">Następne</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="gallery-grid sto_full desktop-only">
+                        <article class="gallery-card js-lightbox-trigger" data-index="0">
+                            <div class="img-wrapper">
+                                <div class="img-scaler">
+                                    <img class="img-current" src="img/personal/1.webp" alt="Design">
+                                    <div class="mask-wrapper">
+                                        <img class="img-next" src="" alt="Next">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <p class="card-desc">Subtraction isn't minimalism, it's discipline. What you leave out says everything.</p>
+                            </div>
+                        </article>
+
+                        <article class="gallery-card js-lightbox-trigger" data-index="1">
+                            <div class="img-wrapper">
+                                <div class="img-scaler">
+                                    <img class="img-current" src="img/personal/2.webp" alt="Work">
+                                    <div class="mask-wrapper">
+                                        <img class="img-next" src="" alt="Next">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <p class="card-desc">Every decision you make becomes a mirror. Good design isn't about what you build, it's about what you reveal.</p>
+                            </div>
+                        </article>
+
+                        <article class="gallery-card js-lightbox-trigger" data-index="2">
+                            <div class="img-wrapper">
+                                <div class="img-scaler">
+                                    <img class="img-current" src="img/personal/3.webp" alt="Case study">
+                                    <div class="mask-wrapper">
+                                        <img class="img-next" src="" alt="Next">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <p class="card-desc">Nobody remembers the deliverables. They remember the feeling. That's what I build for.</p>
+                            </div>
+                        </article>
+
+                        <article class="gallery-card js-lightbox-trigger" data-index="3">
+                            <div class="img-wrapper">
+                                <div class="img-scaler">
+                                    <img class="img-current" src="img/personal/4.webp" alt="Direction">
+                                    <div class="mask-wrapper">
+                                        <img class="img-next" src="" alt="Next">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text-wrapper">
+                                <p class="card-desc">It's authorship. Curation. Responsibility. It's the invisible pressure behind every pixel.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="mobile-gallery-wrapper mobile-only">
+                        <div class="mg-drag-area" id="mg-drag-area">
+                            <img class="mg-img-current" id="mg-img-current" src="img/personal/1.webp" alt="Obecne" draggable="false">
+                            <div class="mg-mask-wrapper" id="mg-mask-wrapper">
+                                <img class="mg-img-next" id="mg-img-next" src="" alt="Następne" draggable="false">
+                            </div>
+                        </div>
+                        
+                        <div class="sto_full mg-text-container" id="mg-text-wrapper">
+                            <p class="card-desc width30" id="mg-card-desc">Subtraction isn't minimalism, it's discipline. What you leave out says everything.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                
+            <section class="scroll-section section-dark-bg js-color-section" data-bg-color="#090909" data-font-color="#fcfcfc" data-logo-theme="light">
+                <div class="sto_full_end">
+                    <div class="one_half">
+                        <h1 class="js-stylize-letters width20">
+                            Masz projekt, o którym chcesz porozmawiać?
+                        </h1>
+                    </div>
+                    <div class="one_half">
+                        <p>
+                            Napisz do mnie. Opowiedz, co planujesz. <br>Odpowiem w ciągu 24 godzin.
+                        </p>
+                        <a href="kontakt.html" class="liquid-button" aria-label="Przejdź do kontaktu">
+                            <span class="btn-icon"></span>
+                            <span class="btn-text">
+                                <span>Napisz do mnie</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="sto_footer">
+                        <div class="one_half bottomfooter">
+                            <img src="svg/logo_white_1on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+                        <div class="one_half space-between-vertical">
+                            <img src="svg/logo_white_2on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+
+                        <div class="one_half top24 ">
+                            <p class="onefour">© 2025 WSZELKIE PRAWA ZASTRZEŻONE <a href="kontakt.html">Polityka prywatności</a></p>
+                        </div>
+
+                        <div class="one_fourth footer-info-box top24 bottom24">
+                            <div class="align-bottom">
+                                <a href="https://www.instagram.com/rafalkurek_design/" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">INSTAGRAM</span>
+                                </a>
+                                <a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">Behance</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#hero" class="footer-link scroll-top js-scroll-to">
+                                    <span class="footer-icon-group">
+                                        <span class="footer-icon icon-up"></span>
+                                        <span class="footer-icon icon-up"></span>
+                                    </span>
+                                    <span class="footer-text">DO GÓRY</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>             
+        </main>
+    </div>
+
+    <div class="lightbox-overlay" aria-hidden="true">
+        <button class="lightbox-close-btn">ZAMKNIJ</button>
+        <div class="lightbox-track"></div>
+        <div class="lightbox-counter"></div>
+    </div>
+
+    <div class="showreel-lightbox-overlay" aria-hidden="true">
+        <div class="showreel-lightbox-content">
+            <video class="showreel-lightbox-video" playsinline>
+                <source src="img/RK.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje tagu wideo.
+            </video>
+        </div>
+        <div class="progress-wrapper showreel-lightbox-progress">
+            <div class="progress-indicator">00:00 / 00:00</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/image-spawn.js" defer></script>
+
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+        <defs>
+            <filter id="goo-button">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="
+                    1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
+                    0 0 0 26 -18" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+</body>
+</html>

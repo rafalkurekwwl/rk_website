@@ -1,0 +1,509 @@
+/* ==================== BRIEF PAGE (brief.css → dodać na końcu sections.css) ==================== */
+
+/* --- Layout --- */
+.brief-layout {
+    display: flex;
+    min-height: 100vh;
+    padding: 0 var(--grid-margin);
+    gap: var(--gap);
+    align-items: flex-start;
+}
+
+/* --- Lewa kolumna sticky --- */
+.brief-left {
+    width: calc(50% - var(--gap) / 2);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: calc(2 * var(--grid-margin) + var(--logo-height));
+    padding-bottom: var(--grid-margin);
+}
+
+.brief-title-mask {
+    overflow: hidden;
+    width: 70%;
+    margin: 0 0 clamp(40px, 6vw, 80px) 0;
+    user-select: none;
+    /* wysokość ustawiana przez JS po załadowaniu SVG */
+}
+
+.brief-title-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+.brief-title-track.is-counting {
+    transform: translateY(-50%);
+}
+
+.brief-big-title {
+    display: block;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.brief-counter {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    font-weight: 900;
+    color: #e6e5e2;
+    line-height: 1;
+    /* height + font-size ustawiane przez JS */
+}
+
+.brief-question-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.brief-question-list li {
+    font-size: var(--font-s);
+    font-weight: 500;
+    color: #555554;
+    opacity: 1;
+    padding: 2px 0;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: default;
+    line-height: 1.3;
+    width: fit-content;
+}
+
+.brief-question-list li span.q-label {
+    cursor: pointer;
+}
+
+.brief-question-list li.is-filled {
+    opacity: 0.2;
+}
+
+.brief-question-list li .q-num {
+    color: #525252;
+    margin-right: 10px;
+    font-size: 0.75rem;
+}
+
+/* --- Prawa kolumna scrollowalna --- */
+.brief-right {
+    width: 25%;
+    flex-shrink: 0;
+    padding-top: calc(2 * var(--grid-margin) + var(--logo-height));
+    padding-bottom: calc(var(--grid-margin) * 2);
+}
+
+/* --- Blok pytania --- */
+.question-block {
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+}
+
+.question-block + .question-block {
+    padding-top: 0;
+}
+
+.question-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0 0 24px 0;
+    color: var(--black-color-font);
+    letter-spacing: -0.012em;
+}
+
+.question-hint {
+    font-size: var(--font-s);
+    font-weight: 500;
+    color: var(--black-color-font);
+    line-height: 1.3;
+    margin: 0 0 24px 0;
+    max-width: 46ch;
+    transition: opacity 0.4s ease;
+}
+
+.question-hint.is-faded {
+    opacity: 0.4;
+}
+
+/* --- Email block --- */
+.email-block {
+    padding-top: 48px;
+}
+
+.email-label-top {
+    font-size: var(--font-s);
+    font-weight: 500;
+    color: var(--black-color-font);
+    margin: 0 0 24px 0;
+    line-height: 1.4;
+}
+
+.form-submit-wrapper {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.brief-right .form-consent {
+    font-size: 0.75rem;
+    color: var(--gray-color-font);
+    line-height: 1.5;
+    max-width: 34ch;
+    margin: 0;
+}
+
+.brief-right .form-consent a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* --- Success state --- */
+.form-success {
+    display: none;
+    padding: 48px 0;
+}
+
+.form-success.is-visible {
+    display: block;
+}
+
+.form-success h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+.form-success p {
+    font-size: var(--font-s);
+    color: var(--gray-color-font);
+    margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .brief-layout {
+        flex-direction: column;
+    }
+
+    .brief-left {
+        width: 100%;
+        position: relative;
+        height: auto;
+        padding-top: calc(2 * var(--grid-margin) + var(--logo-height));
+        padding-bottom: 0;
+    }
+
+    .brief-big-title {
+        width: 100%;
+    }
+
+    .brief-question-list {
+        display: none;
+    }
+
+    .brief-right {
+        width: 100%;
+        padding-top: 0;
+    }
+}
+
+/* --- Label w polach briefa: tylko fade, zero ruchu --- */
+/* Nadpisuje ewentualne float-label style z form-style.css */
+.brief-right .form-group textarea {
+    resize: none;
+}
+
+.brief-right .form-group label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gray-color-font);
+    pointer-events: none;
+    transform: none !important;
+    font-size: 1rem !important;
+    transition: opacity 0.25s ease;
+    line-height: 1.4;
+}
+
+.brief-right .form-group:hover label,
+.brief-right .form-group textarea:focus ~ label,
+.brief-right .form-group textarea:not(:placeholder-shown) ~ label,
+.brief-right .form-group input:focus ~ label,
+.brief-right .form-group input:not(:placeholder-shown) ~ label {
+    opacity: 0;
+    transform: none !important;
+}
+
+/* --- Liquid button: wariant z ikonami (brief, kontakt) --- */
+
+/* Ukryj oryginalną strzałkę ::before */
+.liquid-button-contact .btn-icon::before {
+    display: none !important;
+}
+
+/* Kontener ikon — zachowaj display:flex i 52x52 z .liquid-button, dodaj position:relative */
+.liquid-button-contact .btn-icon {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Obie ikony absolutnie na sobie w centrum */
+.liquid-button-contact .btn-icon img {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: contain;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Stan domyślny */
+.liquid-button-contact .btn-icon .btn-icon-default {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.liquid-button-contact .btn-icon .btn-icon-hover {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0.75) !important;
+}
+
+/* Przejście koloru na btn-text */
+.liquid-button-contact .btn-text {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                color 0.6s ease;
+}
+
+/* Hover — blokuj rotację, zamieniaj ikony */
+.liquid-button-contact:hover .btn-icon {
+    transform: translateX(0px) rotate(0deg) !important;
+}
+
+.liquid-button-contact:hover .btn-icon .btn-icon-default {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scale(0.75) !important;
+}
+
+.liquid-button-contact:hover .btn-icon .btn-icon-hover {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* --- Stan nieaktywny --- */
+.liquid-button-contact.is-disabled {
+    pointer-events: none;
+    filter: none;
+    cursor: default;
+}
+
+.liquid-button-contact.is-disabled .btn-icon {
+    background-color: #dfdee2 !important;
+    color: #5b5b5d !important;
+    transform: none !important;
+}
+
+.liquid-button-contact.is-disabled .btn-text {
+    background-color: #dfdee2 !important;
+    color: #5b5b5d !important;
+    transform: translateX(-40px) !important;
+}
+
+.liquid-button-contact.is-disabled .btn-icon .btn-icon-default {
+    opacity: 0.6;
+}
+
+/* ===== UPLOAD PLIKÓW ===== */
+
+.upload-block {
+    padding-bottom: 48px;
+}
+
+.upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.upload-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--black-color-font);
+    letter-spacing: -0.012em;
+}
+
+.upload-counter {
+    font-size: var(--font-xs);
+    font-weight: 500;
+    color: var(--gray-color-font);
+}
+
+/* Dropzone */
+.upload-dropzone {
+    border: 1px dashed #b1b0ae;
+    border-radius: 12px;
+    padding: 56px 24px 64px 24px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.upload-dropzone.is-over {
+    border-color: #a09ac8;
+}
+
+.upload-dropzone.is-full {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin: 0 auto 0;
+    opacity: 1;
+}
+
+.upload-label {
+    font-size: var(--font-s);
+    font-weight: 500;
+    color: #666666;
+    margin: 0 0 6px;
+    line-height: 1.4;
+}
+
+.upload-link {
+    font-weight: 600;
+    color: var(--black-color-font);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.upload-hint {
+    font-size: var(--font-xs);
+    color: var(--gray-color-font);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Lista plików */
+.upload-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.upload-file-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border-radius: 10px;
+    padding: 14px 16px;
+    position: relative;
+    border: 1px solid #dcdbdb;
+    overflow: hidden;
+}
+
+.upload-file-item.is-loading {
+    padding-bottom: 32px;
+}
+.upload-file-progress-wrap {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: #e1e1e1;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: opacity 0.4s ease;
+}
+
+.upload-file-progress-bar {
+    height: 100%;
+    background: #9c94dc;
+    width: 0%;
+    transition: width 0.15s linear;
+}
+
+/* Pasek gotowy — tylko zanika w miejscu */
+.upload-file-progress-wrap.is-done {
+    opacity: 0;
+}
+
+.upload-file-icon {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0;
+    opacity: 0.8;
+    align-self: center;
+}
+
+.upload-file-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.upload-file-name {
+    font-size: var(--font-xs);
+    font-weight: 700;
+    color: var(--black-color-font);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.upload-file-size {
+    font-size: 0.75rem;
+    color: var(--gray-color-font);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.upload-file-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    opacity: 0.35;
+    transition: opacity 0.2s ease;
+}
+
+.upload-file-action:hover {
+    opacity: 1;
+}
+
+.upload-file-action img {
+    width: 16px !important;
+    height: 16px !important;
+    display: block;
+}

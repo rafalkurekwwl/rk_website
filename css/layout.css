@@ -1,0 +1,244 @@
+/* ==================== 3. UKŁAD I SIATKA (layout.css) ==================== */
+
+.clearfix::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+
+.page-wrapper { 
+    position: relative; 
+    z-index: 2; 
+}
+
+.page-wrapper.hidden-at-start { 
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), border-radius 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.page-wrapper.is-visible { 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.content { 
+    position: relative; 
+    padding: 0px;  
+    margin: 0 auto; 
+}
+
+.scroll-section { 
+    position: relative; 
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    text-align: left; 
+}
+
+main > .scroll-section:first-child { 
+    padding-top: 0px; 
+    box-sizing: border-box; 
+}
+
+.grid-row { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: var(--gap); 
+}
+
+.flex { 
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.obok { 
+    display: flex; 
+    flex-wrap: wrap; 
+} 
+
+.sto_full { 
+    width: calc(100vw - 2 * var(--grid-margin)); 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.sto_full_end { 
+    width: calc(100vw - 2 * var(--grid-margin)); 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.sto_w { 
+    width: calc(100vw - 2 * var(--grid-margin)); 
+    max-width: 1440px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.sixsix { 
+    width: calc(100vw - 2 * var(--grid-margin)); 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-top: 0px; 
+}
+
+.sto_footer { 
+    width: calc(100vw - 2 * var(--grid-margin)); 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.footer-info-box {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    width: 100%;
+    gap: var(--gap);
+}
+
+/* --- Siatka / Grid (Mobile First) --- */
+.one_sixth, 
+.one_fifth, 
+.one_fourth, 
+.one_third, 
+.two_fifth, 
+.one_half, 
+.two_fourth, 
+.three_fifth, 
+.two_third, 
+.three_fourth, 
+.four_fifth, 
+.five_sixth, 
+.one_twelfth, 
+.one, 
+.one_half_fluid, 
+.info17, 
+.info25 {
+    width: 100%; 
+    flex-basis: 100%; 
+    justify-content: space-between; 
+}
+
+[class*="one_"], 
+[class*="two_"], 
+[class*="three_"], 
+[class*="four_"], 
+[class*="five_"] { 
+    margin-bottom: 0; 
+}
+
+@media (min-width: 768px) {
+    .one_sixth, 
+    .one_fifth, 
+    .one, 
+    .one_half_fluid { 
+        width: auto; 
+    }
+    
+    .one_twelfth { flex-basis: calc(8.333% - (var(--gap) * 11 / 12)); }
+    .one_sixth { flex-basis: calc(16.666% - (var(--gap) * 5 / 6)); }
+    .one_fifth { flex-basis: calc(20% - (var(--gap) * 4 / 5)); }
+    .one_fourth { flex-basis: calc(25% - (var(--gap) * 3 / 4)); }
+    
+    .two_sixth, 
+    .one_third { flex-basis: calc(33.333% - (var(--gap) * 4 / 6)); }
+    
+    .two_fifth { flex-basis: calc(40% - (var(--gap) * 3 / 5)); }
+    
+    .three_sixth, 
+    .two_fourth, 
+    .one_half { flex-basis: calc(50% - (var(--gap) * 3 / 6)); }
+    
+    .one_half_fluid { flex-basis: calc(60% - (var(--gap) * 2 / 5)); }
+    .three_fifth { flex-basis: calc(60% - (var(--gap) * 2 / 5)); }
+    
+    .four_sixth, 
+    .two_third { flex-basis: calc(66.666% - (var(--gap) * 2 / 6)); }
+    
+    .three_fourth { flex-basis: calc(75% - (var(--gap) * 1 / 4)); }
+    .four_fifth { flex-basis: calc(80% - (var(--gap) * 1 / 5)); }
+    .five_sixth { flex-basis: calc(83.333% - (var(--gap) * 1 / 6)); }
+    
+    .one { flex-basis: 100%; }
+}
+
+@media (min-width: 1200px) {
+    .one_half_fluid { 
+        flex-basis: calc(50% - (var(--gap) * 2 / 4)); 
+    }
+    
+    .sixsix {
+        width: calc(66.666% + (var(--gap) * 4 / 6)); 
+        margin-left: calc(16.666% - (var(--gap) * 5 / 6) + var(--gap));
+        margin-right: calc(16.666% - (var(--gap) * 5 / 6) + var(--gap));
+    }
+    
+    .bok17, 
+    .info17 { flex-basis: calc(16.666% - (var(--gap) * 5 / 6)); }
+    
+    .bok25, 
+    .info25 { flex-basis: calc(25% - (var(--gap) * 3 / 4)); }
+}
+
+/* --- Marginesy i utility classes --- */
+.top24 { padding-top: 4px; }
+.topgap { padding-top: var(--gap); }
+.top40 { padding-top: var(--padding-top-s); }
+.top100 { padding-top: 100px; }
+.top80 { padding-top: var(--padding-top-m); }
+.top160 { padding-top: var(--padding-top-l); }
+.top240 { padding-top: var(--padding-top-l); }
+
+.bottom24 { padding-bottom: 12px; }
+.bottom40 { padding-bottom: var(--padding-top-s); }
+.bottom80 { padding-bottom: var(--padding-top-m); }
+.bottom160 { padding-bottom: var(--padding-top-l); }
+.bottomfooter { padding-bottom: 8px; }
+.bottomplus { padding-bottom: var(--padding-top-s); }
+
+.no-margin-top { margin-top: 8px; }
+.self-bottom { align-self: flex-end !important; }
+.small { min-height: 10vh; }
+
+.gallery_top80, 
+.gallery_top160, 
+.gallery_top240, 
+.gallery_top0 { 
+    padding-top: 0px; 
+}
+
+@media (min-width: 768px) {
+    .gallery_top160 { padding-top: var(--padding-top-m); }
+    .gallery_top240 { padding-top: 240px; }
+    .bottom24 { padding-bottom: var(--gap); }
+    .top24 { padding-top: var(--gap); }
+    .bottomfooter { padding-bottom: 0; }
+    .bottomplus { padding-bottom: 0; }
+}

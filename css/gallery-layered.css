@@ -1,0 +1,1185 @@
+/* ==========================================================================
+   === STYLE DLA WIELOWARSTWOWEJ GALERII (WERSJA ZINTEGROWANA Z TWOIM GRIDEM) ===
+   ========================================================================== */
+
+body.lightbox-is-open { 
+    overflow: hidden; 
+}
+
+.layered-gallery-section { 
+    width: 100%; 
+    position: relative; 
+    padding: 150px 0; 
+}
+
+.background-gallery {
+    position: absolute;
+    top: calc(150px + 10vh);
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    z-index: 1; /* Tło jest pod spodem */
+}
+.bg-track { display: flex; height: 100%; will-change: transform; }
+.bg-image { height: 100%; width: auto; flex-shrink: 0; }
+.bg-image img { height: 100%; width: auto; display: block; object-fit: cover; }
+
+.bg-fade-overlay {
+    position: absolute; top: 0; height: 100%; width: 40%;
+    z-index: 2; pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.bg-fade-overlay.is-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(248, 248, 248, 0.85) 0%, rgba(248, 248, 248, 0.75) 40%, rgba(248, 248, 248, 0.2) 75%, rgba(248, 248, 248, 0) 100%);
+    transform: translateX(-100%);
+}
+.bg-fade-overlay.is-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(248, 248, 248, 0.85) 0%, rgba(248, 248, 248, 0.75) 40%, rgba(248, 248, 248, 0.2) 75%, rgba(248, 248, 248, 0) 100%);
+    transform: translateX(100%);
+}
+.bg-fade-overlay.is-visible { transform: translateX(0); }
+
+.gallery-layout-wrapper {
+    position: relative;
+    z-index: 2;
+    pointer-events: none; 
+}
+
+.gallery-layout-wrapper h3 { 
+    margin: 0; 
+    font-weight: 500; 
+    font-size: 1.2rem; 
+    color: var(--black-color-font);
+}
+
+.main-gallery {
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+    clip-path: inset(0 0% 0 0%);
+    transition: clip-path 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    pointer-events: auto; 
+}
+.main-track { height: 100%; width: 100%; position: relative; }
+.main-slide { position: absolute; inset: 0; opacity: 0; }
+.main-slide.is-active { opacity: 1; }
+.main-slide img { width: 100%; height: 100%; object-fit: cover; }
+.caption-title { font-weight: 500; color: var(--black-color-font); }
+.caption-cta { font-weight: 700; cursor: pointer; color: #888; transition: color 0.3s; }
+.caption-cta:hover { color: #111; }
+
+.lightbox-overlay {
+    position: fixed; inset: 0; z-index: 10005;
+    background-color: #f8f8f8;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; 
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.lightbox-overlay.is-open { 
+    opacity: 1; 
+    pointer-events: auto; 
+    visibility: visible;
+}
+
+.lightbox-close-btn {
+    position: absolute; top: 40px; left: 50%;
+    transform: translateX(-50%);
+    background: none; border: none; font-size: 1rem;
+    color: var(--black-color-font);
+    text-transform: uppercase; cursor: pointer;
+    padding: 10px; z-index: 10;
+}
+
+.lightbox-slide {
+    position: absolute; width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+.lightbox-slide.is-active { opacity: 1; z-index: 1; pointer-events: auto; }
+
+.lightbox-overlay .lightbox-slide img {
+    max-width: 90vw; max-height: 80vh;
+    object-fit: contain; user-select: none; cursor: grab;
+}
+.lightbox-overlay .lightbox-slide img.is-grabbing { cursor: grabbing; }
+
+.lightbox-counter {
+    position: absolute; bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--font-xs); color: #bababa; z-index: 10; pointer-events: none;
+}
+
+.gallery-nav-cursor { position: fixed; top: 0; left: 0; z-index: 10001; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; }
+.gallery-nav-cursor.is-active { opacity: 1; }
+.cursor-visual { 
+    width: 120px; height: 120px; background-color: #1a1a1a; 
+    color: #fff; border-radius: 50%; display: flex; 
+    justify-content: center; align-items: center; text-align: center; 
+    font-size: 12px; transform: translate(-50%, -50%) scale(0.8); 
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+.gallery-nav-cursor.is-active .cursor-visual { transform: translate(-50%, -50%) scale(1); }
+.portfolio-cursor-text { text-transform: uppercase; }
+.hide-system-cursor { cursor: none; }
+
+/* ==========================================================================
+   === STYLE DLA SEKCJI SHOWREEL ===
+   ========================================================================== */
+
+.showreel-vertical-center .sto_full {
+    align-items: center;
+}
+
+.showreel-section-wrapper {
+    position: relative;
+    pointer-events: auto;
+    width: 100%; 
+}
+
+.showreel-section {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.showreel-section.is-hovered {
+    cursor: none;
+}
+
+.showreel-section.is-playing {
+    cursor: default;
+}
+
+.showreel-video {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showreel-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    will-change: transform;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.showreel-section.is-playing .showreel-cursor {
+    opacity: 0;
+}
+
+.showreel-cursor .cursor-visual {
+    width: 120px;
+    height: 120px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%) scale(1);
+}
+.showreel-cursor .cursor-visual span {
+    line-height: 1.4;
+}
+
+.progress-wrapper {
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.showreel-section-wrapper.is-playing .progress-wrapper {
+    opacity: 1;
+}
+
+.progress-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: currentColor;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.showreel-container {
+    min-height: auto;
+    align-items: center; 
+    padding-top: 160px; 
+    padding-bottom: 80px; 
+}
+.showreel-container .sto_full {
+    justify-content: center;
+}
+.showreel-cursor .cursor-visual {
+    transition: background-color 1.2s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.sr-mask-container.is-hovered .cursor-visual {
+    background-color: #e80831; /* Zmień ten HEX, jeśli masz "swój" odcień czerwieni */
+}
+
+/* 2. Ukrycie systemowego kursora w całym Lightboxie (bo mamy customowy) */
+
+
+/* 3. Ustawienia Twojego kursora "ZAMKNIJ" (jeśli nie masz ich globalnie) */
+.video-close-cursor {
+    position: fixed;
+    top: 30px;
+    left: 60px;
+    width: 80px; 
+    height: 80px;
+    color: var(--light-color-font, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: var(--font-family-base);
+    font-size: 12px;
+    font-weight: 600;
+    pointer-events: none; /* Nie blokuje kliknięć! */
+    z-index: 10007; /* Wyżej niż lightbox */
+    opacity: 0; /* Domyślnie ukryty */
+    transform: translate(-50%, -50%) scale(0.5); /* Środek kursora to środek myszki */
+    will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   EDITORIAL GALLERY (Zmieniające się kafelki)
+   ========================================================================== */
+
+.gallery-section {
+    width: 100%;
+    padding: 100px 0; /* Padding góra/dół */
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+.gallery-header {
+    margin-bottom: 60px;
+    align-items: flex-end;
+}
+
+.gallery-title {
+    font-family: var(--font-family-base);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+    color: var(--black-color-font);
+}
+
+.gallery-info-box {
+    display: flex;
+    flex-direction: row; /* Zmiana z column na row - układ poziomy */
+    justify-content: space-between; /* Rozsuwa elementy na skrajne strony */
+    align-items: flex-end; /* Wyrównuje tekst i przycisk do dolnej linii */
+    width: 100%; /* Upewnia się, że kontener zajmuje całą prawą połowę */
+    gap: var(--gap);
+}
+
+.gallery-info-text {
+    font-family: var(--font-family-base);
+    font-size: var(--font-xs);
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--gray-color-font);
+    margin: 0;
+}
+
+/* GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: var(--gap); 
+    align-items: start; 
+}
+
+.gallery-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.img-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden; 
+    background-color: #f0f0f0;
+    margin-bottom: 24px; 
+    aspect-ratio: 1 / 1; 
+}
+
+.img-scaler {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.gallery-card:hover .img-scaler {
+    transform: scale(1.06);
+}
+
+.gallery-card:hover .card-desc {
+    color: currentColor; 
+}
+
+.img-current, .img-next {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+}
+
+.mask-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    clip-path: inset(0 0 0 100%);
+    will-change: clip-path;
+}
+
+.card-text-wrapper {
+    will-change: opacity; 
+}
+
+.card-desc {
+    font-family: var(--font-family-base);
+    font-size: var(--font-s);
+    color: var(--gray-color-font); 
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 30ch;
+    margin: 0;
+    transition: color 0.3s;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1024px) {
+    .gallery-grid.desktop-only { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    /* Ukrywamy trzecią i czwartą kartę na rzecz jednego rzędu */
+    .gallery-grid.desktop-only .gallery-card:nth-child(n+3) {
+        display: none !important;
+    }
+}
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-header { flex-direction: column; align-items: flex-start; }
+    .gallery-info-box { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+/* ==========================================================================
+   GALERIA OSOBISTA - SWITCH DESKTOP/MOBILE
+   ========================================================================== */
+
+/* Domyślnie ukrywamy wersję mobile */
+.mobile-only {
+    display: none !important;
+}
+
+/* Breakpoint dla telefonów/tabletów (dostosuj max-width pod swój grid) */
+@media (max-width: 768px) {
+    /* Zamiana widoczności */
+    .desktop-only { display: none !important; }
+    .mobile-only { display: flex !important; }
+    
+    .mobile-gallery-wrapper {
+        width: 100vw;
+        flex-direction: column;
+    }
+
+    .mg-drag-area {
+        width: 100vw;
+        aspect-ratio: 1 / 1; 
+        position: relative;
+        background-color: #e0e0e0;
+        overflow: hidden;
+        touch-action: pan-y; 
+        cursor: grab;
+        margin-bottom: 30px; /* Odstęp do tekstu */
+    }
+
+    .mg-drag-area:active { cursor: grabbing; }
+
+    .mg-img-current, 
+    .mg-img-next {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none; 
+        will-change: transform;
+    }
+
+    .mg-mask-wrapper {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 2;
+        clip-path: inset(0% 0% 0% 100%); 
+        pointer-events: none;
+        will-change: clip-path;
+    }
+
+    .mg-text-container {
+        will-change: opacity;
+        min-height: 80px; 
+    }
+}
+
+/* ==========================================================================
+   LIGHTBOX (DRAGGABLE SLIDER STYLE)
+   ========================================================================== */
+
+.lightbox-overlay {
+    position: fixed; inset: 0; z-index: 10005;
+    background-color: #fcfcfc;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden;
+}
+
+.lightbox-overlay.is-open { 
+    opacity: 1; pointer-events: auto; 
+}
+
+.lightbox-track {
+    width: 100%; height: 100%;
+    position: relative;
+}
+
+.lightbox-slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    opacity: 0; 
+    visibility: hidden; 
+    will-change: transform, opacity;
+}
+
+.lightbox-slide.is-visible {
+    opacity: 1; 
+    visibility: visible;
+}
+
+.lightbox-slide.is-active {
+    z-index: 2;
+}
+
+.lightbox-slide img {
+    max-width: 90vw; 
+    max-height: 85vh;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    
+    /* Kursor */
+    cursor: grab; 
+    cursor: -webkit-grab;
+    will-change: transform;
+}
+
+/* Stan ciągnięcia */
+.lightbox-slide img.is-grabbing {
+    cursor: grabbing !important;
+    cursor: -webkit-grabbing !important;
+    transition: transform 0.2s ease;
+}
+
+/* UI */
+
+
+.lightbox-close-btn {
+    position: absolute; top: 30px; right: 30px;
+    background: none; border: none; 
+    font-family: var(--font-family-base);
+    font-size: 1rem; font-weight: 500;
+    color: var(--black-color-font);
+    cursor: pointer; z-index: 10;
+    text-transform: uppercase;
+}
+
+body:not(.lightbox-is-open) {
+    cursor: auto; 
+}
+
+/* ==========================================================================
+   SHOWREEL LIGHTBOX OVERLAY
+   ========================================================================== */
+
+.showreel-lightbox-overlay {
+    position: fixed; 
+    inset: 0; 
+    z-index: 10006; /* Bardzo wysoki z-index, nad menu i kursorami */
+    background-color: var(--black-color, #090909); /* Tryb kinowy */
+    opacity: 0; 
+    pointer-events: none; 
+    visibility: hidden;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.showreel-lightbox-overlay.is-open {
+    opacity: 1; 
+    pointer-events: auto; 
+    visibility: visible;
+}
+
+.showreel-lightbox-content {
+    width: 80vw;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9; /* Zachowuje kinowe proporcje */
+    position: relative;
+    background-color: #000;
+}
+
+.showreel-lightbox-video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Dostosowanie paska postępu do Lightboxa */
+.showreel-lightbox-progress {
+    position: absolute;
+    bottom: var(--grid-margin); 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 1200px;
+    opacity: 1 !important; /* Wymuszamy widoczność (wcześniej miałeś opacity: 0 na start) */
+    color: #767676;
+}
+
+/* ==========================================================================
+   PRZYCISK "NASTĘPNE" - MINIMALISTYCZNY
+   ========================================================================== */
+
+.gallery-simple-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Odstęp strzałki od tekstu */
+    cursor: pointer;
+    color: var(--black-color-font, #090909); /* Twardy kolor */
+    text-decoration: none;
+}
+.gallery-btn-text {
+    font-family: var(--font-family-base);
+    font-size: var(--font-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Kontener trzymający wymiary ikony (16x16px jak w stopce) */
+.gallery-arrow-group {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    display: block; 
+    flex-shrink: 0;
+}
+
+/* Zdefiniowanie strzałki jako maski */
+.gallery-arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor; 
+    -webkit-mask-image: url('svg/arrow-right.svg'); /* Pamiętaj o dobrej nazwie pliku! */
+    mask-image: url('svg/arrow-right.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    /* Płynne przejście zamiast klatkowej animacji */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Stan początkowy strzałek */
+.gallery-arrow.arrow-1 { transform: translateX(0); }
+.gallery-arrow.arrow-2 { transform: translateX(-150%); }
+
+/* --- NOWE: ANIMACJA PO NAJECHANIU MYSZKĄ (HOVER) --- */
+.gallery-simple-btn:hover .arrow-1 {
+    transform: translateX(150%); /* Obecna strzałka ucieka w prawo */
+}
+
+.gallery-simple-btn:hover .arrow-2 {
+    transform: translateX(0); /* Zapasowa strzałka wjeżdża z lewej na środek */
+}
+
+@keyframes arrowSlideOut {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(150%); }
+}
+@keyframes arrowSlideIn {
+    0% { transform: translateX(-150%); }
+    100% { transform: translateX(0); }
+}
+/* ==========================================================================
+   NOWA SEKCJA SERVICES (PHYSICS ACCORDION)
+   ========================================================================== */
+
+.accordion-wrapper {
+    width: 100%;
+    /* border-bottom: 1px solid #ddd;  <-- USUŃ TO */
+}
+
+.accordion-item {
+    width: 100%;
+    position: relative;
+}
+
+.accordion-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Środek elementu */
+    transform: translateX(-50%); /* Centrujemy */
+    width: 100vw; /* Szerokość całego ekranu! */
+    height: 1px;
+    background-color: #e2e2e2; /* Kolor linii */
+    z-index: 1;
+}
+
+.accordion-item::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 50vw + 16px);
+    right: calc(50% - 50vw + 16px);
+    top: 16px;
+    bottom: 16px;
+    background-color: #f2f2f2; 
+    border-radius: 6px;
+    z-index: -1; 
+    opacity: 0; 
+    pointer-events: none;
+    transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                right 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                top 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                bottom 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-item:hover::after {
+    opacity: 1;
+    left: calc(50% - 50vw + 4px);
+    right: calc(50% - 50vw + 4px);
+    top: 4px;
+    bottom: 4px;
+}
+
+.accordion-item.is-active::after {
+    opacity: 0.4;
+    left: calc(50% - 50vw + 4px);
+    right: calc(50% - 50vw + 4px);
+    top: 4px;
+    bottom: 4px;
+}
+
+.accordion-wrapper {
+    position: relative;
+}
+.accordion-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background-color: #e2e2e2;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap);
+    padding: 40px 0;
+    cursor: pointer;
+    background-color: transparent;
+    width: 100%;
+}
+
+/* LEWA STRONA: Tytuł */
+.title-group {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    flex: 0 0 50%; 
+    height: auto;
+}
+
+/* Maska strzałki */
+.arrow-mask {
+    width: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-right: 0; /* JS/Hover doda margin jeśli trzeba */
+}
+
+/* Ikona strzałki wewnątrz */
+.arrow-icon-acc {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    stroke: var(--black-color-font);
+}
+
+.accordion-header h2 {
+    font-family: var(--font-family-base);
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -1.1px;
+    color: var(--black-color-font);
+    margin: 0;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* PRAWA STRONA: Treść */
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    flex: 1;
+    padding-right: 40px;
+}
+
+.accordion-content-inner {
+    font-family: var(--font-family-base);
+    font-size: 1.25rem;
+    color: var(--black-color-font);
+    line-height: 1.2;
+    font-weight: 500;
+    max-width: 40ch;
+    opacity: 0;
+    padding-top: 18px;
+    padding-bottom: 20px;
+}
+
+/* PLUSIK */
+.icon-plus {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    flex-shrink: 0;
+    margin-top: 0.5em; /* Wyrównanie z tekstem */
+}
+
+.icon-plus::before, .icon-plus::after {
+    content: '';
+    position: absolute;
+    background-color: var(--black-color-font);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon-plus::before { width: 100%; height: 2px; }
+.icon-plus::after { width: 2px; height: 100%; }
+
+/* --- INTERAKCJE --- */
+
+.accordion-header:hover .arrow-mask,
+.accordion-item.is-active .arrow-mask {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.accordion-header:hover .arrow-icon-acc,
+.accordion-item.is-active .arrow-icon-acc {
+    transform: translateX(0);
+}
+
+/* Wygaszanie nieaktywnych */
+.accordion-wrapper.has-active .accordion-header .title-group,
+.accordion-wrapper.has-active .accordion-header .icon-plus {
+    opacity: 0.1;
+}
+
+.accordion-wrapper.has-active .accordion-item.is-active .accordion-header .title-group,
+.accordion-wrapper.has-active .accordion-item.is-active .accordion-header .icon-plus {
+    opacity: 1;
+}
+
+/* --- ARENA FIZYKI (Canvas) --- */
+#physics-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Musi być none, żeby nie blokował strony! */
+    z-index: 150; /* Nad treścią, ale pod nawigacją/triggerem */
+}
+
+/* Styl spadających tagów */
+.tag {
+    position: absolute;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-family: var(--font-family-base);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #141414;
+    white-space: nowrap;
+    transform-origin: center center;
+    will-change: transform;
+  
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .accordion-header { flex-wrap: wrap; }
+    .title-group { flex: 0 0 100%; width: 100%; margin-bottom: 10px; }
+    .accordion-content { padding-left: 0; flex: 0 0 100%; width: 100%; }
+    .icon-plus { position: absolute; right: 0; top: 40px; }
+    .accordion-item { position: relative; }
+}
+
+/* ==========================================================================
+   SEKCJA SOCIAL PROOF (CYTATY)
+   ========================================================================== */
+
+.social-proof-grid {
+    width: 100%;
+    padding: 0px  var(--grid-margin);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: var(--gap); 
+}
+
+.testimonial-card {
+    width: 100%; 
+    aspect-ratio: 1 / 1.25; 
+    display: flex;
+    flex-direction: column; 
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    padding: 40px;
+    box-sizing: border-box;
+    cursor: default; /* Możesz zmienić na pointer, jeśli w przyszłości dodasz tam linki */
+    overflow: hidden; 
+}
+
+.quote-text {
+    font-family: var(--font-family-base);
+    font-size: var(--font-quote); 
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--black-color-font, #111);
+    margin: 0;
+}
+
+.quote-hidden-wrapper {
+    display: none; 
+}
+
+/* Zmienione nazwy by nie gryzły się ze SplitType z Twoich nagłówków! */
+.quote-word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.quote-char {
+    opacity: 0; 
+    display: inline-block;
+}
+
+/* Autor */
+.author-area {
+    margin-top: auto; 
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.author-name {
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black-color-font, #111);
+    line-height: 1;
+}
+
+.author-role {
+    font-family: var(--font-family-base);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-color-font, #888);
+    line-height: 1;
+}
+
+/* Responsywność dostosowana do Twoich breakpointów */
+@media (max-width: 1200px) {
+    .social-proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .social-proof-grid { grid-template-columns: 1fr; }
+    .testimonial-card { aspect-ratio: auto; min-height: 350px; }
+}
+
+@media (min-width: 1920px) {
+    .testimonial-card { aspect-ratio: 1 / 1; }
+}
+
+/* ==========================================================================
+   SEKCJA FULLSCREEN SHOWREEL (SCROLL EXPAND)
+   ========================================================================== */
+
+.fullscreen-sr-section {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; 
+}
+
+.sr-mask-container {
+    position: relative;
+    /* Stan początkowy: szerokość 100% minus dwa marginesy */
+    width: calc(100% - 2 * var(--grid-margin)); 
+    height: 100vh; /* Pełna wysokość ekranu */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Optymalizacja wydajności animacji */
+    will-change: width;
+}
+
+.sr-mask-container.is-hovered {
+    cursor: none;
+}
+
+.sr-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    /* Dajemy lekki zoom na start, żeby przy przewijaniu zdjęcie też lekko się oddalało */
+
+    will-change: transform;
+}
+
+
+.sr-centered-text {
+    position: relative;
+    z-index: 3;
+    font-family: var(--font-family-base);
+    font-size: 2rem; /* Responsywny, wielki font */
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   WIDŻET PROCESU (JAK WYGLĄDA MÓJ PROCES)
+   ========================================================================== */
+
+.process-widget {
+    width: 100%; /* Dopasowuje się do rodzica (one_half) */
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.process-content-area {
+    min-height: 160px; 
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+}
+
+.process-anim-group {
+    will-change: transform, opacity;
+}
+
+.process-title {
+    font-family: var(--font-family-base);
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -1px;
+    padding-bottom: 2rem;
+    margin: 0;
+    color: var(--black-color-font, #111);
+}
+
+.process-desc {
+    font-family: var(--font-family-base);
+    font-size: var(--font-s);
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--black-color-font, #111);
+    margin: 0;
+}
+
+.process-pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 32px; 
+}
+
+.step-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #f0f0f0; 
+    color: #a0a0a0; 
+    font-family: var(--font-family-base);
+    font-size: var(--font-xs);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    padding: 0;
+}
+
+.step-btn:hover {
+    background-color: #e4e4e4;
+    color: var(--black-color-font, #111);
+}
+
+.step-btn.is-active {
+    background-color: #aa9bec; /* Twój fioletowy przycisk */
+    color: #000000; 
+}
+
+/* ==========================================================================
+   MINIMALISTYCZNY WIDŻET PROCESU
+   ========================================================================== */
+
+.process-left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.process-titles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Odstęp między tytułami */
+    align-items: flex-start;
+}
+
+.process-title-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-family: var(--font-family-base);
+    font-size: var(--font-s);
+    font-weight: 500;
+    color: var(--black-color-font, #090909);
+    cursor: pointer;
+    opacity: 0.2; 
+    transition: opacity 0.4s ease;
+}
+
+.process-title-btn span {
+    margin-right: 2px; /* Odstęp cyfry od słowa */
+}
+
+.process-title-btn:hover {
+    opacity: 0.6; /* Lekkie podświetlenie po najechaniu */
+}
+
+.process-title-btn.is-active {
+    opacity: 1; /* Aktywny jest w 100% czarny */
+    pointer-events: none; /* Nie klikamy w to, co jest już otwarte */
+}
+
+.process-anim-group {
+    will-change: transform, opacity;
+}
+
+.process-desc {
+    margin: 0; /* Opis na równo z górną krawędzią pierwszego tytułu */
+}
