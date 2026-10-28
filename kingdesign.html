@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafał Kurek - Brand Designer</title>
+    <link rel="preload" href="webfonts/DesignerSans.otf" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset-and-typo.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/gallery-layered.css">
+</head>
+<body>
+
+    <div class="page-transition-overlay"></div>
+
+    <div class="preloader" style="--preloader-bg: #c1c1c1; --preloader-purple: #614697;">
+        <div class="preloader-layer preloader-layer--purple"></div>
+        <div class="preloader-layer preloader-layer--main">
+            <div class="preloader-content">
+                <div class="preloader-words">
+                    <span class="word active">INSIGHT</span>
+                    <span class="word">STRATEGY</span>
+                    <span class="word">CREATE</span>
+                    <span class="word">IMPACT</span>
+                </div>
+                <div class="preloader-status">
+                    <p class="czarne">Proszę czekać</p>
+                    <p class="czarne"><span id="percentage">0</span>%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-mask-container">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-black.svg" alt="Logo RK" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-mask-container logo-white-version">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-white.svg" alt="" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-text-container">
+        <p class="logo-descriptor"></p>
+    </div>
+
+    <div class="scroll-progress-indicator"></div>
+    <div class="scroll-progress-percentage">
+        <span id="scroll-percentage-value">0</span>%
+    </div>
+
+    <div class="custom-scrollbar">
+        <div class="scrollbar-thumb"></div>
+    </div>
+
+    <button class="menu-toggle-btn" aria-label="Przełącz nawigację" aria-controls="menu-overlay" aria-expanded="false">
+        <div class="menu-toggle-label-wrapper">
+            <div class="menu-toggle-label-inner">
+                <span class="menu-toggle-label-closed">MENU</span>
+                <span class="menu-toggle-label-open">WRÓĆ</span>
+            </div>
+        </div>
+    </button>
+
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-hidden="true">
+        <div class="menu-overlay-header">
+            <a href="/" aria-label="Strona główna">
+                <img src="svg/logo-short-white.svg" alt="Logo RK" class="menu-overlay-logo">
+            </a>
+        </div>
+        <nav class="menu-overlay-nav" aria-label="Nawigacja główna">
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="omnie.html">O mnie</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="menu-overlay-footer">
+            <p>Jestem Rafał. Od 20 lat projektuję marki, które pracują na wyniki i pozostają w pamięci.</p>
+        </div>
+    </div>
+        
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p class="cookie-text">
+                Ta strona używa ciasteczek.<br>
+                <a href="/polityka-prywatnosci">Czytaj więcej.</a>
+            </p>
+            <button class="cookie-accept-button magnetic-item" id="cookieAcceptBtn">AKCEPTUJ</button>
+        </div>
+    </div>
+
+    <div class="logo-hover-cursor" aria-hidden="true">
+        <img src="smile.svg" alt="Uśmiechnięta ikona">
+    </div>
+    <div class="video-close-cursor" aria-hidden="true">
+        <span class="close-text">zamknij</span>
+    </div>
+
+    <div class="page-wrapper">
+        <header class="main-header">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="js-reveal-nav-item">Portfolio</a></li>
+                    <li><a href="omnie.html" class="js-reveal-nav-item">O Mnie</a></li>
+                    <li><a href="kontakt.html" class="js-reveal-nav-item">Kontakt</a></li>
+                </ul>
+                <div class="icon-mask-wrapper">
+                    <a href="#" class="nav-icon-link js-reveal-nav-item" aria-label="Link specjalny">
+                        <img src="svg/wow1.svg" class="icon-base" alt="">
+                        <img src="svg/wow2.svg" class="icon-hover" alt="">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <header class="center-header">
+            <nav class="center-nav">
+                <a href="cyberrabbit.html" class="footer-link scroll-top js-scroll-to">
+                    <span class="footer-icon-group">
+                    <span class="footer-icon icon-up"></span>
+                    <span class="footer-icon icon-up"></span>
+                    </span>
+                    <span class="footer-text">WREDNE MAŁPY</span>
+                </a>
+            </nav>
+        </header>
+
+        <main class="content clearfix">
+            <div id="hero"></div>
+
+            <div class="project-hero-container section section-dark-bg js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <section class="project-hero-title-section">
+                    <h1 class="project-title">KING DESIGN</h1>
+                    <p class="project-subtitle js-reveal-text">BRAND & WEB DESIGN</p>
+                </section>
+
+                <section class="zoom-section-wrapper">
+                    <div class="zoom-pin-container">
+                        <div class="animated-background-track">
+                            <img src="svg/brand_gray.svg" alt="" class="animated-svg">
+                            <img src="svg/brand_gray.svg" alt="" class="animated-svg">
+                            <img src="svg/brand_gray.svg" alt="" class="animated-svg">
+                            <img src="svg/brand_gray.svg" alt="" class="animated-svg">
+                            <img src="svg/brand_gray.svg" alt="" class="animated-svg">
+                        </div>
+                        <div class="hero-image-reveal-mask">
+                            <img src="img/kingdesign01.jpg" alt="Projekt King Design - wizytówka" class="zoom-image">
+                        </div>
+                    </div>
+                    <div class="project-info-box">
+                        <p class="info-box-title">Helping brands thrive <br>in the digital world</p>
+                    </div>
+                </section>
+            </div>
+
+            <section data-header-text="" class="sticky-background-section scroll-section section section-light grid-row" data-logo-theme="light" style="background-image: url('img/tlo01.jpg');">
+                <div class="sto_w_sticky">
+                    <div class="sticky-text-img">
+                        <p>WE DESIGN TO CONNECT</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-header-text="WYZWANIE" class="scroll-section section small section-light grid-row js-menu-trigger top160" data-logo-theme="dark">
+                <div class="sto_full">
+                    <div class="one_fourth">
+                        <p class="width50 onefour">
+                        KLIENT: <br>King Design (projekt własny)</p>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width50 onefour">
+                        ZAKRES: <br>Rebranding + strategia SEO</p>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width50 onefour">
+                        RYNEK DOCELOWY: <br>Warszawa oraz firmy o zasięgu europejskim</p>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width50 onefour">
+                        ROK: <br>2012</p>
+                    </div>
+                </div>
+                <div class="sto_full top40">
+                    <div class="one_half_fluid">
+                        <h2 class="js-stylize-letters">King Design założyłem w 2010 roku, po latach pracy w agencji. Naturalnym krokiem było sprawdzenie, ile są warte moje umiejętności poza strukturą agencyjną, na otwartym rynku.</h2>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width50">Pierwsza wersja King Design przynosiła zlecenia. Zrealizowałem między innymi kompleksowy system wizualny dla kampanii parlamentarnej. Ale skala miała sufit. Zlecenia lokalne, zapytania o pojedyncze logo, rynek bez przestrzeni do wzrostu. 
+                            Hasło, którym się wtedy posługiwałem, "Stać Cię na prestiż", mówiło językiem dyskontu, nie premium studia. To ono blokowało wejście na wyższy poziom klientów, zanim jeszcze zrobiłem pierwszy krok w tym kierunku.</p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section class="scroll-section section section-light grid-row js-menu-trigger top160 js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full">
+                    <div class="image-reveal-background">
+                        <div class="image-reveal-mask">
+                            <img src="img/kingdesign05.jpg" alt="Strona www">
+                        </div>
+                    </div>
+                </div>
+                <div data-header-text="STRATEGIA" class="sto_full top160">
+                    <div class="one_half_fluid">
+                        <h4 class="js-stylize-letters width40">Rebranding oparłem na haśle WE DESIGN TO CONNECT. Wynikało ono bezpośrednio z mojej filozofii pracy: design to narzędzie łączące markę z konkretnym segmentem rynku i grupą odbiorców. Warszawa jako rynek docelowy wymagała jednak przemyślanej strategii SEO. Cel: pozycja top 3 na frazę “agencja reklamowa Warszawa”. Wysoka konkurencja, ale też najwyższa jakość leadów.</h4>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width35">Język wizualny musiał odzwierciedlać dojrzałość studia. Zrezygnowałem z dosłownej korony ze starego logo i szeryfowych fontów kojarzących się z klasycznym rzemiosłem. Sygnet stał się nowoczesną, zgeometryzowaną strukturą przestrzenną subtelnie nawiązującą do korony, a typografia zyskała ciężar i dynamikę. Fiolet przesunął markę wizualnie w stronę sektora technologicznego i doradztwa B2B.
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width35">Fundamentem strategii SEO była nowa strona zaprojektowana od podstaw jako narzędzie sprzedażowe. Do osiągnięcia wysokich pozycji organicznych wystarczyły wtedy dwa elementy wykonane bezbłędnie: wydajna technicznie struktura i precyzyjny profil linków. Zakładany czas do wyników: 2-3 miesiące.</p>
+                    </div>
+                </div>
+                <div class="sto_full top160">
+                    <div class="one_half">
+                        <div class="image-reveal-background">
+                            <div class="image-reveal-mask">
+                                <img src="img/kingdesign09.jpg" alt="Strona www">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="one_half">
+                        <div class="image-reveal-background">
+                            <div class="image-reveal-mask">
+                                <img src="img/kingdesign07.jpg" alt="Strona www">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sto_full">
+                        <div class="image-reveal-background">
+                            <div class="image-reveal-mask">
+                                <img src="img/kingdesign08.jpg" alt="Strona www">
+                            </div>
+                        </div>
+                </div>
+                <div class="sto_full">
+                    <div class="two_fourth">
+                        <div class="image-reveal-background">
+                            <div class="image-reveal-mask">
+                                <img src="img/kingdesign02_.jpg" alt="Strona www">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="one_third">
+                        <div class="image-reveal-background">
+                            <div class="image-reveal-mask">
+                                <img src="img/kingdesign03.gif" alt="Strona www">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="scroll-section small section section-dark-bg js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full top160">
+                    <div class="one_half_fluid">
+                        <h3 class="js-stylize-letters">Strona osiągnęła 3. pozycję w Google na frazę "agencja reklamowa Warszawa" w zakładanym czasie. Zmiany były natychmiastowe. Nie w liczbie zapytań, w ich jakości. Zapytania o logo zastąpiły zapytania o pełne systemy identyfikacji z kampaniami. Wśród klientów którzy się zgłosili był producent cystern kolejowych działający na rynku europejskim.</h3>
+                    </div>
+                    <div class="one_fourth">
+                        <p class="width30">Pozycjonowanie marki decyduje o typie klienta który do niej trafia. Nie budżet reklamowy.</p>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+            <section class="scroll-section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full_end">
+                    <div class="one_half">
+                        <h1 class="js-stylize-letters width20">
+                            Masz projekt, o którym chcesz porozmawiać?
+                        </h1>
+                    </div>
+                    <div class="one_half">
+                        <p>
+                            Napisz do mnie. Opowiedz, co planujesz. <br>Odpowiem w ciągu 24 godzin.
+                        </p>
+                        <a href="kontakt.html" class="liquid-button" aria-label="Przejdź do kontaktu">
+                            <span class="btn-icon"></span>
+                            <span class="btn-text">
+                                <span>Napisz do mnie</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="next-project-loader">
+                <p>Następny projekt</p>
+                <div class="loader-bar-wrapper">
+                    <div class="loader-bar-progress"></div>
+                </div>
+            </div>
+                    <div class="sto_footer">
+                        <div class="one_half bottomfooter">
+                            <img src="svg/logo_dark_1on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+                        <div class="one_half space-between-vertical">
+                            <img src="svg/logo_dark_2on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+
+                        <div class="one_half top24">
+                            <p class="onefour">© 2025 WSZELKIE PRAWA ZASTRZEŻONE <a href="kontakt.html">Polityka prywatności</a></p>
+                        </div>
+
+                        <div class="one_fourth footer-info-box top24 bottom24">
+                            <div class="align-bottom">
+                                <a href="https://www.instagram.com/rafalkurek_design/" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">INSTAGRAM</span>
+                                </a>
+                                <a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">Behance</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#hero" class="footer-link scroll-top js-scroll-to">
+                                    <span class="footer-icon-group">
+                                        <span class="footer-icon icon-up"></span>
+                                        <span class="footer-icon icon-up"></span>
+                                    </span>
+                                    <span class="footer-text">DO GÓRY</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page-end-trigger" data-next-page="cyberrabbit.html" data-transition-color="#cc2219"></div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="js/script.js" defer></script>
+
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+        <defs>
+            <filter id="goo-button">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="
+                    1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
+                    0 0 0 26 -18" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+</body>
+</html>
