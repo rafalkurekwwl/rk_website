@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafał Kurek - Brand Designer</title>
-    <link rel="preload" href="webfonts/DesignerSans.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preconnect" href="https://api.fontshare.com">
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+    <link rel="preload" href="webfonts/DesignerSans.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/reset-and-typo.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -94,7 +91,7 @@
             <p>Jestem Rafał. Od 20 lat projektuję marki, które pracują na wyniki i pozostają w pamięci.</p>
         </div>
     </div>
-
+        
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <p class="cookie-text">
@@ -160,7 +157,7 @@
                             <img src="svg/brand_gray.svg" alt="" class="animated-svg">
                         </div>
                         <div class="hero-image-reveal-mask">
-                            <img src="img/kingdesign01.webp" alt="Projekt King Design - wizytówka" class="zoom-image">
+                            <img src="img/kingdesign01.jpg" alt="Projekt King Design - wizytówka" class="zoom-image">
                         </div>
                     </div>
                     <div class="project-info-box">
@@ -169,7 +166,7 @@
                 </section>
             </div>
 
-            <section data-header-text="" class="sticky-background-section scroll-section section section-light grid-row" data-logo-theme="light">
+            <section data-header-text="" class="sticky-background-section scroll-section section section-light grid-row" data-logo-theme="light" style="background-image: url('img/tlo01.jpg');">
                 <div class="sto_w_sticky">
                     <div class="sticky-text-img">
                         <p>WE DESIGN TO CONNECT</p>
@@ -201,11 +198,12 @@
                         <h2 class="js-stylize-letters">King Design założyłem w 2010 roku, po latach pracy w agencji. Naturalnym krokiem było sprawdzenie, ile są warte moje umiejętności poza strukturą agencyjną, na otwartym rynku.</h2>
                     </div>
                     <div class="one_fourth">
-                        <p class="width50">Pierwsza wersja King Design przynosiła zlecenia. Zrealizowałem między innymi kompleksowy system wizualny dla kampanii parlamentarnej. Ale skala miała sufit. Zlecenia lokalne, zapytania o pojedyncze logo, rynek bez przestrzeni do wzrostu.
+                        <p class="width50">Pierwsza wersja King Design przynosiła zlecenia. Zrealizowałem między innymi kompleksowy system wizualny dla kampanii parlamentarnej. Ale skala miała sufit. Zlecenia lokalne, zapytania o pojedyncze logo, rynek bez przestrzeni do wzrostu. 
                             Hasło, którym się wtedy posługiwałem, "Stać Cię na prestiż", mówiło językiem dyskontu, nie premium studia. To ono blokowało wejście na wyższy poziom klientów, zanim jeszcze zrobiłem pierwszy krok w tym kierunku.</p>
                     </div>
                 </div>
             </section>
+            
 
             <section class="scroll-section section section-light grid-row js-menu-trigger top160 js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
                 <div class="sto_full">
@@ -266,7 +264,7 @@
                     </div>
                 </div>
             </section>
-
+            
             <section class="scroll-section small section section-dark-bg js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
                 <div class="sto_full top160">
                     <div class="one_half_fluid">
@@ -278,6 +276,8 @@
                 </div>
             </section>
 
+            
+            
             <section class="scroll-section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
                 <div class="sto_full_end">
                     <div class="one_half">
@@ -342,11 +342,12 @@
         </main>
     </div>
 
-    <script src="js/vendor/gsap.min.js" defer></script>
-    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
-    <script src="js/vendor/lenis.min.js" defer></script>
-    <script src="js/vendor/ScrollToPlugin.min.js" defer></script>
-    <script src="js/vendor/split-type.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
     <script src="js/script.js" defer></script>
 
     <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
@@ -354,9 +355,9 @@
             <filter id="goo-button">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
                 <feColorMatrix in="blur" mode="matrix" values="
-                    1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
+                    1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
                     0 0 0 26 -18" result="goo" />
                 <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
             </filter>
