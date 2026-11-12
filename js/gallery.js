@@ -15,16 +15,16 @@ function initPersonalGallery() {
 
     const pagesData = [
         [
-            { src: '../img/personal/1.webp', desc: 'Subtraction isn\'t minimalism, it\'s discipline. What you leave out says everything.' },
-            { src: '../img/personal/2.webp', desc: 'Every decision you make becomes a mirror. Good design isn\'t about what you build.' },
-            { src: '../img/personal/3.webp', desc: 'Nobody remembers the deliverables. They remember the feeling. That\'s what I build for.' },
-            { src: '../img/personal/4.webp', desc: 'It\'s authorship. Curation. Responsibility. It\'s the invisible pressure behind every pixel.' }
+            { src: 'img/personal/1.webp', desc: 'Subtraction isn\'t minimalism, it\'s discipline. What you leave out says everything.' },
+            { src: 'img/personal/2.webp', desc: 'Every decision you make becomes a mirror. Good design isn\'t about what you build.' },
+            { src: 'img/personal/3.webp', desc: 'Nobody remembers the deliverables. They remember the feeling. That\'s what I build for.' },
+            { src: 'img/personal/4.webp', desc: 'It\'s authorship. Curation. Responsibility. It\'s the invisible pressure behind every pixel.' }
         ],
         [
-            { src: '../img/personal/5.webp', desc: 'Space is not empty, it is full of possibilities. It gives your content room to breathe.' },
-            { src: '../img/personal/6.webp', desc: 'Words have meaning, but typography conveys emotion. Choose your typefaces carefully.' },
-            { src: '../img/personal/7.webp', desc: 'Animation shouldn\'t just be decorative. It must guide the eye, provide context, and delight.' },
-            { src: '../img/personal/8.webp', desc: 'A strong foundation allows for creative freedom. Break the rules only after you have mastered them.' }
+            { src: 'img/personal/5.webp', desc: 'Space is not empty, it is full of possibilities. It gives your content room to breathe.' },
+            { src: 'img/personal/6.webp', desc: 'Words have meaning, but typography conveys emotion. Choose your typefaces carefully.' },
+            { src: 'img/personal/7.webp', desc: 'Animation shouldn\'t just be decorative. It must guide the eye, provide context, and delight.' },
+            { src: 'img/personal/8.webp', desc: 'A strong foundation allows for creative freedom. Break the rules only after you have mastered them.' }
         ]
     ];
     const allImages = pagesData.flat();

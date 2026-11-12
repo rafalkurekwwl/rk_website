@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rafał Kurek - Brand Designer</title>
     <meta name="description" content="Rafał Kurek – Brand & Web Designer. Projektuję strategiczną identyfikację wizualną i nowoczesne strony WWW. Wyróżnij swoją markę na rynku. Zobacz portfolio!">
-    <link rel="preload" href="webfonts/DesignerSans.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="webfonts/DesignerSans.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/reset-and-typo.css">
-    <link rel="preload" href="css/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/sections.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="css/layout.css">
-        <link rel="stylesheet" href="css/components.css">
-        <link rel="stylesheet" href="css/sections.css">
-    </noscript>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
 </head>
 <body>
     <div class="page-transition-overlay"></div>
@@ -150,7 +145,7 @@
             <section id="hero-section" data-header-text="BRAND and WEB DESIGNER" class="scroll-section section section-light hero-section js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
                 <h1 class="hero-title">
                     <div class="hero-title-wrapper">
-                        <span class="hero-title-text hero-image-span"><img src="img/heroface.webp" alt=""></span>
+                        <span class="hero-title-text hero-image-span"><img src="img/heroface.webp" alt="" width="1082" height="700" fetchpriority="high"></span>
                         <span class="hero-title-text">BRAND<span class="h1-conjunction"> and </span>WEB DESIGNER</span>
                     </div>
                 </h1>
@@ -177,21 +172,18 @@
 
                 <div class="hero-center-group">
                     <div class="showreel-container">
-                        <img src="img/hero02.webp" alt="Okładka showreel" class="showreel-cover-image">
-                        <video class="showreel-image" autoplay loop muted playsinline>
-                            <source src="img/RK.mp4" type="video/mp4">
-                            Twoja przeglądarka nie obsługuje tagu wideo.
-                        </video>
+                        <img src="img/hero02.webp" alt="Okładka showreel" class="showreel-cover-image" width="1999" height="1301" fetchpriority="high">
+                        <video class="showreel-image" width="1920" height="1080" loop muted playsinline preload="none" poster="img/hero02.webp" data-src="img/RK.mp4" data-src-mobile="img/RK-720.mp4" data-autoplay></video>
                     </div>
                 </div>
 
                 <div class="showreel-trigger">
                     <div class="trigger-images">
-                        <img src="img/minihero1.webp" class="trigger-img active" alt="">
-                        <img src="img/minihero2.webp" class="trigger-img" alt="">
-                        <img src="img/minihero3.webp" class="trigger-img" alt="">
-                        <img src="img/minihero4.webp" class="trigger-img" alt="">
-                        <img src="img/minihero5.webp" class="trigger-img" alt="">
+                        <img src="img/minihero1.webp" class="trigger-img active" alt="" width="700" height="420">
+                        <img src="img/minihero2.webp" class="trigger-img" alt="" width="700" height="420" loading="lazy" decoding="async">
+                        <img src="img/minihero3.webp" class="trigger-img" alt="" width="700" height="420" loading="lazy" decoding="async">
+                        <img src="img/minihero4.webp" class="trigger-img" alt="" width="700" height="420" loading="lazy" decoding="async">
+                        <img src="img/minihero5.webp" class="trigger-img" alt="" width="700" height="420" loading="lazy" decoding="async">
                     </div>
                     <span class="trigger-text">showreel</span>
                 </div>
@@ -229,7 +221,7 @@
                                 <a href="kingdesign.html" class="portfolio-item portfolio-item--large opengallery" data-color="#4e249c">
                                     <div class="portfolio-image-container">
                                         <div class="portfolio-image-mask">
-                                            <img src="img/01gallery.webp" alt="Projekt King Design" class="portfolio-image">
+                                            <img src="img/01gallery.webp" alt="Projekt King Design" class="portfolio-image" width="1020" height="680" loading="lazy" decoding="async">
                                         </div>
                                     </div>
                                     <div class="portfolio-caption portfolio-caption--extended">
@@ -244,7 +236,7 @@
                                 <a href="cyberrabbit.html" class="portfolio-item portfolio-item--large opengallery" data-color="#c31717">
                                     <div class="portfolio-image-container">
                                         <div class="portfolio-image-mask">
-                                            <img src="img/02gallery.webp" alt="Projekt Studio Reel" class="portfolio-image">
+                                            <img src="img/02gallery.webp" alt="Projekt Studio Reel" class="portfolio-image" width="1600" height="914" loading="lazy" decoding="async">
                                         </div>
                                     </div>
                                     <div class="portfolio-caption portfolio-caption--extended">
@@ -265,7 +257,7 @@
                                 <a href="logofolio.html" class="portfolio-item portfolio-item--large opengallery" data-color="#56c01c">
                                     <div class="portfolio-image-container2">
                                         <div class="portfolio-image-mask">
-                                            <img src="img/other01.webp" alt="Projekt King Design" class="portfolio-image">
+                                            <img src="img/other01.webp" alt="Projekt King Design" class="portfolio-image" width="800" height="1200" loading="lazy" decoding="async">
                                         </div>
                                     </div>
                                     <div class="portfolio-caption portfolio-caption--extended">
@@ -280,7 +272,7 @@
                             <div class="one_fourth self-bottom">
                                 <a href="strefa41.html" class="portfolio-item opengallery" data-color="#c31717">
                                     <div class="portfolio-image-container">
-                                        <img src="img/04gallery.webp" alt="Projekt Studio Reel" class="portfolio-image">
+                                        <img src="img/04gallery.webp" alt="Projekt Studio Reel" class="portfolio-image" width="1820" height="1024" loading="lazy" decoding="async">
                                     </div>
                                     <div class="portfolio-caption">
                                         <span class="portfolio-caption-text">Strefa 41</span>
@@ -298,7 +290,7 @@
                                 <a href="kancelaria.html" class="portfolio-item portfolio-item--large opengallery" data-color="#7c7366">
                                     <div class="portfolio-image-container">
                                         <div class="portfolio-image-mask">
-                                            <img src="img/03gallery.webp" alt="Projekt Studio Reel" class="portfolio-image">
+                                            <img src="img/03gallery.webp" alt="Projekt Studio Reel" class="portfolio-image" width="1820" height="1024" loading="lazy" decoding="async">
                                         </div>
                                     </div>
                                     <div class="portfolio-caption portfolio-caption--extended">
@@ -316,7 +308,7 @@
                             <div class="one_fourth self-bottom">
                                 <a href="webfolio.html" class="portfolio-item opengallery" data-color="#c31717">
                                     <div class="portfolio-image-container">
-                                        <img src="img/other02.webp" alt="Projekt Studio Reel" class="portfolio-image">
+                                        <img src="img/other02.webp" alt="Projekt Studio Reel" class="portfolio-image" width="1200" height="800" loading="lazy" decoding="async">
                                     </div>
                                     <div class="portfolio-caption">
                                         <span class="portfolio-caption-text">Webfolio</span>
@@ -338,7 +330,7 @@
                     <div class="one_third self-bottom">
                         <a href="wredne.html" class="portfolio-item opengallery" data-color="#ffd200">
                             <div class="portfolio-image-container">
-                                <img src="img/malpy01.webp" alt="Projekt numer 3" class="portfolio-image">
+                                <img src="img/malpy01.webp" alt="Projekt numer 3" class="portfolio-image" width="887" height="669" loading="lazy" decoding="async">
                             </div>
                             <div class="portfolio-caption">
                                 <span class="portfolio-caption-text">Wredne Małpy</span>
@@ -352,7 +344,7 @@
                     <div class="one_third">
                         <a href="#" class="portfolio-item is-vertical opengallery" data-color="#0aae16">
                             <div class="portfolio-image-container">
-                                <img src="img/other01.webp" alt="Projekt King Design" class="portfolio-image">
+                                <img src="img/other01.webp" alt="Projekt King Design" class="portfolio-image" width="800" height="1200" loading="lazy" decoding="async">
                             </div>
                             <div class="portfolio-caption">
                                 <span class="portfolio-caption-text">Print Design - DTP</span>
@@ -423,11 +415,11 @@
         </main>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
-    <script src="https://unpkg.com/split-type"></script>
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+    <script src="js/vendor/ScrollToPlugin.min.js" defer></script>
+    <script src="js/vendor/split-type.min.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/home.js" defer></script>
 

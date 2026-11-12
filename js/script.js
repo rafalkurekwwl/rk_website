@@ -20,6 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initPageTransitions();
 });
 
+window.addEventListener('load', () => {
+  document.querySelectorAll('video[data-src]').forEach((video) => {
+    const mobile = video.dataset.srcMobile && window.matchMedia('(max-width: 1024px)').matches;
+    video.src = mobile ? video.dataset.srcMobile : video.dataset.src;
+    if (video.hasAttribute('data-autoplay')) {
+      video.autoplay = true;
+      video.play().catch(() => {});
+    }
+  });
+});
+
 function initPreloader() {
   const preloader = document.querySelector('.preloader');
   const pageWrapper = document.querySelector('.page-wrapper');
@@ -37,13 +48,13 @@ function initPreloader() {
     currentWordIndex = (currentWordIndex + 1) % words.length;
     if (words[currentWordIndex]) words[currentWordIndex].classList.add('active');
   };
-  const wordInterval = setInterval(changeWord, 200);
+  const wordInterval = setInterval(changeWord, 100);
 
   const counterObj = { value: 0 };
 
   gsap.to(counterObj, {
     value: 100,
-    duration: 0.8,
+    duration: 0.4,
     ease: "power1.out",
     onUpdate: () => {
       percentageElement.textContent = Math.floor(counterObj.value);
@@ -65,12 +76,12 @@ function initPreloader() {
 
     tl.to(topLayer, {
       clipPath: 'inset(0% 0% 100% 0%)',
-      duration: 0.9,
+      duration: 0.6,
       ease: 'power4.inOut'
     })
     .to(bottomLayer, {
       clipPath: 'inset(0% 0% 100% 0%)',
-      duration: 0.6,
+      duration: 0.45,
       ease: 'power4.inOut',
       onStart: () => {
         try {
@@ -80,7 +91,7 @@ function initPreloader() {
           console.error("Błąd podczas inicjalizacji skryptów strony:", error);
         }
       }
-    }, '-=0.3');
+    }, '-=0.25');
   }
 }
 
