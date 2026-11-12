@@ -1,5 +1,3 @@
-// script.js (clean — bez menu overlay i przycisków)
-
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 if ('scrollRestoration' in history) {
@@ -42,7 +40,7 @@ function initPreloader() {
   const wordInterval = setInterval(changeWord, 200);
 
   const counterObj = { value: 0 };
-  
+
   gsap.to(counterObj, {
     value: 100,
     duration: 0.8,
@@ -82,7 +80,7 @@ function initPreloader() {
           console.error("Błąd podczas inicjalizacji skryptów strony:", error);
         }
       }
-    }, '-=0.3'); 
+    }, '-=0.3');
   }
 }
 
@@ -114,7 +112,7 @@ function initApp() {
   initBackgroundColorChange();
   initHeroLogoMasking();
   initStaticMenuActiveState();
-  // initMenuImageHover(); // USUNIĘTE (menu overlay)
+
   initServicesSection();
   initScrollingGallery();
   initDynamicHeader();
@@ -131,7 +129,7 @@ function stylizeSpecialCharacters() {
   const elements = document.querySelectorAll('.js-stylize-letters');
   if (!elements.length) return;
   elements.forEach(el => {
-    if (el.id === 'reveal-text') return; /* pomijamy — stylizacja po SplitType */
+    if (el.id === 'reveal-text') return;
     el.innerHTML = el.innerHTML.replace(new RegExp(`(${charsToStylize.join('|')})`, 'g'), '<span class="stylized-char">$1</span>');
   });
 }
@@ -195,13 +193,11 @@ function initScrollAnimations() {
   if (document.querySelector('#reveal-text')) {
     const revealTextInstance = new SplitType('#reveal-text', { types: 'words, chars' });
 
-    /* Zapobiegaj łamaniu wyrazów */
     revealTextInstance.words.forEach(word => {
       word.style.whiteSpace = 'nowrap';
       word.style.display = 'inline-block';
     });
 
-    /* Stylizuj litery 't' po SplitType — na gotowych .char spanach */
     revealTextInstance.chars.forEach(charEl => {
       if (charEl.textContent === 't') {
         charEl.classList.add('stylized-char');
@@ -294,7 +290,7 @@ function initNavigation() {
   const menuToggle = document.querySelector('.menu-toggle-btn');
   const menuOverlay = document.querySelector('.menu-overlay');
   const pageWrapper = document.querySelector('.page-wrapper');
-  
+
   if (!menuToggle || !menuOverlay) return;
 
   let isOpen = false;
@@ -306,7 +302,7 @@ function initNavigation() {
     menuOverlay.classList.add('is-active');
     menuOverlay.setAttribute('aria-hidden', 'false');
     document.body.classList.add('overlay-open');
-    
+
     gsap.to('.menu-overlay', {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       duration: 0.6,
@@ -320,7 +316,7 @@ function initNavigation() {
     menuToggle.setAttribute('aria-expanded', 'false');
     menuOverlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('overlay-open');
-    
+
     gsap.to('.menu-overlay', {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
       duration: 0.6,
@@ -344,7 +340,7 @@ function initMenuImageHover() {
   const menuImage = document.querySelector('.menu-media-wrapper img');
   const menuImageHover = document.querySelector('.menu-image-hover');
   const menuLinks = document.querySelectorAll('.menu-col-main nav a');
-  
+
   if (!menuImage || !menuLinks.length) return;
 
   menuLinks.forEach(link => {
@@ -355,7 +351,7 @@ function initMenuImageHover() {
         menuImageHover.style.opacity = '1';
       }
     });
-    
+
     link.addEventListener('mouseleave', () => {
       if (menuImageHover) {
         menuImageHover.style.opacity = '0';
@@ -437,8 +433,8 @@ function initLogoSwitcher() {
   }
 
   const switchLogoAnimation = gsap.timeline({ paused: true, defaults: { duration: 0.6, ease: "power2.inOut" } })
-    .fromTo([blackLogoWrapper, whiteLogoWrapper], 
-        { y: 0 }, 
+    .fromTo([blackLogoWrapper, whiteLogoWrapper],
+        { y: 0 },
         { y: -logoHeight }
     );
 
@@ -503,7 +499,7 @@ function initAutoHideMainNav() {
       ? window.lenis.scroll
       : window.pageYOffset || window.scrollY || 0;
 
-  const TOP_CLAMP = 10; 
+  const TOP_CLAMP = 10;
   const DELTA = 5;
   const BOTTOM_THRESHOLD = 50;
 
@@ -520,17 +516,17 @@ function initAutoHideMainNav() {
 
     if (currentY <= TOP_CLAMP) {
       header.classList.remove('is-hidden');
-    } 
+    }
     else if (isAtBottom) {
       header.classList.remove('is-hidden');
-    } 
+    }
     else if (Math.abs(dy) < DELTA) {
       ticking = false;
       return;
-    } 
+    }
     else if (dy > 0) {
       header.classList.add('is-hidden');
-    } 
+    }
     else {
       header.classList.remove('is-hidden');
     }
@@ -555,7 +551,6 @@ function initAutoHideMainNav() {
   update();
 }
 
-
 function initInteractiveElements() {
   const magneticItems = document.querySelectorAll('.magnetic-item');
   magneticItems.forEach(item => {
@@ -577,7 +572,7 @@ function initCustomCursors() {
   const smileCursor = document.querySelector('.logo-hover-cursor');
   const allCursors = [portfolioCursor, smileCursor].filter(c => c);
   const portfolioItems = document.querySelectorAll('.portfolio-item');
-  const logoFooters = document.querySelectorAll('.logo-footer, .logo-footer-two'); 
+  const logoFooters = document.querySelectorAll('.logo-footer, .logo-footer-two');
   if (!allCursors.length) return;
 
   window.addEventListener('mousemove', (e) => {
@@ -598,9 +593,9 @@ function initCustomCursors() {
   });
 
   logoFooters.forEach(logo => {
-    logo.addEventListener('mouseenter', () => { 
-        hideCursors(); 
-        if (smileCursor) showCursor(smileCursor); 
+    logo.addEventListener('mouseenter', () => {
+        hideCursors();
+        if (smileCursor) showCursor(smileCursor);
     });
     logo.addEventListener('mouseleave', hideCursors);
   });
@@ -608,18 +603,18 @@ function initCustomCursors() {
 
 function initSpecialLinks() {
     const scrollLinks = document.querySelectorAll('.js-scroll-to');
-    
+
     if (scrollLinks.length && typeof lenis !== 'undefined') {
         scrollLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetSelector = link.getAttribute('href');
-                
+
                 if (!targetSelector || targetSelector === '#') {
                     lenis.scrollTo(0, { duration: 2 });
                     return;
                 }
-                
+
                 lenis.scrollTo(targetSelector, {
                     duration: 2,
                     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
@@ -765,69 +760,63 @@ function initPageTransition() {
   const loader = document.querySelector('.next-project-loader');
   const progressBar = loader ? loader.querySelector('.loader-bar-progress') : null;
   const overlay = document.querySelector('.page-transition-overlay');
-  
+
   if (!trigger || !loader || !progressBar || !overlay) return;
 
   const nextPageUrl = trigger.dataset.nextPage;
   let transitionTimeline, progressAnimation;
 
   ScrollTrigger.create({
-    trigger: trigger, 
+    trigger: trigger,
     start: "top bottom",
     onEnter: () => {
       loader.classList.add('is-visible');
-      
-      // Pobieramy kolor z triggera lub ustawiamy domyślny
+
       const transitionColor = trigger.dataset.transitionColor || '#c1c1c1';
-      
-      // Upewniamy się, że overlay startuje z pozycji zdefiniowanej w Twoim CSS (top: 100%)
-      gsap.set(overlay, { 
-        backgroundColor: transitionColor, 
+
+      gsap.set(overlay, {
+        backgroundColor: transitionColor,
         top: '100%',
-        pointerEvents: 'auto' // Blokujemy kliknięcia podczas trwania animacji
+        pointerEvents: 'auto'
       });
 
-      // Odliczanie 2 sekund paska progresu
       transitionTimeline = gsap.delayedCall(2, () => {
         if (window.lenis) window.lenis.stop();
-        
-        const tl = gsap.timeline({ 
-          onComplete: () => { 
-            setTimeout(() => { window.location.href = nextPageUrl; }, 100); 
-          } 
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            setTimeout(() => { window.location.href = nextPageUrl; }, 100);
+          }
         });
-        
-        // Animujemy 'top' do 0 – dokładnie tak samo jak w Twojej funkcji dla kliknięć (links)
-        tl.to(overlay, { 
-          top: 0, 
-          duration: 0.7, // dopasowałem czas (0.7s) do Twojej drugiej funkcji
-          ease: "power3.inOut" 
+
+        tl.to(overlay, {
+          top: 0,
+          duration: 0.7,
+          ease: "power3.inOut"
         }, 0);
-        
-        // Opcjonalnie: lekkie przesunięcie obecnej strony do góry dla lepszego efektu głębi
-        tl.to('.page-wrapper', { 
-          y: "-15vh", 
-          opacity: 0.3, 
-          duration: 0.7, 
-          ease: "power3.inOut" 
+
+        tl.to('.page-wrapper', {
+          y: "-15vh",
+          opacity: 0.3,
+          duration: 0.7,
+          ease: "power3.inOut"
         }, 0);
       });
 
-      // Uruchomienie paska ładowania na 2 sekundy
       progressAnimation = gsap.to(progressBar, { scaleX: 1, duration: 2, ease: "linear" });
     },
     onLeaveBack: () => {
-      // Jeśli użytkownik cofnie scroll przed końcem ładowania
+
       loader.classList.remove('is-visible');
       if (transitionTimeline) transitionTimeline.kill();
       if (progressAnimation) {
         progressAnimation.kill();
         gsap.to(progressBar, { scaleX: 0, duration: 0.3, ease: "power2.out" });
       }
-      // Chowamy overlay z powrotem na top: 100% i przywracamy domyślne pointer-events
-      gsap.to(overlay, { 
-        top: '100%', 
-        duration: 0.3, 
+
+      gsap.to(overlay, {
+        top: '100%',
+        duration: 0.3,
         ease: "power2.out",
         onComplete: () => { gsap.set(overlay, { pointerEvents: 'none' }); }
       });
@@ -962,8 +951,8 @@ function initServicesSection() {
 
     const engine = Engine.create();
     const baseGravity = 0.8;
-    engine.world.gravity.y = baseGravity; 
-    
+    engine.world.gravity.y = baseGravity;
+
     const runner = Runner.create();
     Runner.run(runner, engine);
 
@@ -975,7 +964,7 @@ function initServicesSection() {
             const item = activeTags[i];
             const body = item.body;
             const element = item.element;
-            
+
             if (!element.parentNode) {
                 Composite.remove(engine.world, body);
                 activeTags.splice(i, 1);
@@ -999,7 +988,7 @@ function initServicesSection() {
     updatePhysicsDOM();
 
     const accordionHeaders = document.querySelectorAll('.accordion-header');
-    let currentActiveItem = null; 
+    let currentActiveItem = null;
 
     accordionHeaders.forEach(header => {
         header.addEventListener('click', (e) => {
@@ -1007,8 +996,8 @@ function initServicesSection() {
             const content = parentItem.querySelector('.accordion-content');
             const contentInner = parentItem.querySelector('.accordion-content-inner');
             const icon = parentItem.querySelector('.icon-plus');
-            
-            if (gsap.isTweening(content)) return; 
+
+            if (gsap.isTweening(content)) return;
 
             const category = parentItem.dataset.category;
             const tags = tagsData[category] || [];
@@ -1017,7 +1006,7 @@ function initServicesSection() {
                 closeItem(parentItem);
                 mainWrapper.classList.remove('has-active');
                 currentActiveItem = null;
-            } 
+            }
             else {
                 if (currentActiveItem) {
                     closeItem(currentActiveItem);
@@ -1025,7 +1014,7 @@ function initServicesSection() {
 
                 gsap.to(content, { height: "auto", duration: 0.5, ease: "power3.inOut" });
                 gsap.to(contentInner, { opacity: 1, duration: 0.5, delay: 0.2 });
-                gsap.to(icon, { rotation: 45, duration: 0.5, ease: "power3.inOut" }); 
+                gsap.to(icon, { rotation: 45, duration: 0.5, ease: "power3.inOut" });
 
                 parentItem.classList.add('is-active');
                 mainWrapper.classList.add('has-active');
@@ -1033,8 +1022,8 @@ function initServicesSection() {
 
                 tags.forEach((tag, index) => {
                     setTimeout(() => {
-                        createTag(tag.text); 
-                    }, index * 80); 
+                        createTag(tag.text);
+                    }, index * 80);
                 });
             }
         });
@@ -1044,11 +1033,11 @@ function initServicesSection() {
         const content = item.querySelector('.accordion-content');
         const contentInner = item.querySelector('.accordion-content-inner');
         const icon = item.querySelector('.icon-plus');
-        
+
         gsap.to(content, { height: 0, duration: 0.6, ease: "power3.inOut" });
         gsap.to(contentInner, { opacity: 0, duration: 0.4 });
         gsap.to(icon, { rotation: 0, duration: 0.6, ease: "power3.inOut" });
-        
+
         item.classList.remove('is-active');
     }
 
@@ -1057,19 +1046,19 @@ function initServicesSection() {
 
         const el = document.createElement('div');
         el.classList.add('tag');
-        el.textContent = text; 
-        
-        const tagColors = ['#fff', '#fff']; 
+        el.textContent = text;
+
+        const tagColors = ['#fff', '#fff'];
         const randomColor = tagColors[Math.floor(Math.random() * tagColors.length)];
         el.style.backgroundColor = randomColor;
-        
+
         canvasContainer.appendChild(el);
 
         const width = el.offsetWidth;
         const height = el.offsetHeight;
-        const startY = -100; 
-        
-        const leftSideX = window.innerWidth * 0.25; 
+        const startY = -100;
+
+        const leftSideX = window.innerWidth * 0.25;
         const randomX = leftSideX + (Math.random() * 200 - 100);
 
         const randomFrictionAir = Math.random() * 0.05 + 0.05;
@@ -1083,7 +1072,7 @@ function initServicesSection() {
             density: randomDensity,
         });
 
-        Body.setVelocity(body, { 
+        Body.setVelocity(body, {
             x: (Math.random() - 0.5) * 2,
             y: Math.random() * 6 + 2
         });
@@ -1119,8 +1108,8 @@ function initDynamicHeader() {
   if (window.scrollY < 50) {
       const firstText = sections[0].dataset.headerText;
       textEl.textContent = firstText;
-      gsap.fromTo(textEl, 
-          { y: '100%' }, 
+      gsap.fromTo(textEl,
+          { y: '100%' },
           { y: '0%', duration: 0.8, delay: 0.2, ease: 'power3.out', overwrite: true }
       );
   }
@@ -1130,31 +1119,31 @@ function initDynamicHeader() {
 
     ScrollTrigger.create({
       trigger: section,
-      start: "top top",   
-      end: "+=140",       
-      
+      start: "top top",
+      end: "+=140",
+
       onEnter: () => {
           if (textEl.textContent === textContent && gsap.getProperty(textEl, "y") === 0) return;
           if (textEl.textContent !== textContent) textEl.textContent = textContent;
-          gsap.fromTo(textEl, 
-              { y: '100%' }, 
+          gsap.fromTo(textEl,
+              { y: '100%' },
               { y: '0%', duration: 0.4, ease: 'power3.out', overwrite: true }
           );
       },
 
       onLeave: () => {
-          gsap.to(textEl, { 
-              y: '-120%', 
-              duration: 0.7, 
-              ease: 'power3.in', 
-              overwrite: true 
+          gsap.to(textEl, {
+              y: '-120%',
+              duration: 0.7,
+              ease: 'power3.in',
+              overwrite: true
           });
       },
 
       onEnterBack: () => {
           if (textEl.textContent !== textContent) textEl.textContent = textContent;
-          gsap.fromTo(textEl, 
-              { y: '-120%' }, 
+          gsap.fromTo(textEl,
+              { y: '-120%' },
               { y: '0%', duration: 0.7, ease: 'power3.out', overwrite: true }
           );
       },
@@ -1162,11 +1151,11 @@ function initDynamicHeader() {
       onLeaveBack: () => {
           if (index === 0) return;
 
-          gsap.to(textEl, { 
-              y: '100%', 
-              duration: 0.4, 
-              ease: 'power3.in', 
-              overwrite: true 
+          gsap.to(textEl, {
+              y: '100%',
+              duration: 0.4,
+              ease: 'power3.in',
+              overwrite: true
           });
       }
     });
@@ -1181,10 +1170,10 @@ function initPageTransitions() {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
 
-            if (!href || 
-                href.startsWith('#') || 
-                href.startsWith('mailto:') || 
-                href.startsWith('tel:') || 
+            if (!href ||
+                href.startsWith('#') ||
+                href.startsWith('mailto:') ||
+                href.startsWith('tel:') ||
                 link.target === '_blank' ||
                 e.ctrlKey || e.shiftKey || e.metaKey) {
                 return;
@@ -1194,7 +1183,7 @@ function initPageTransitions() {
 
             const isContact = href.includes('kontakt');
             const targetColor = isContact ? getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim() : '#c1c1c1';
-            
+
             gsap.set(overlay, { backgroundColor: targetColor, top: '100%' });
 
             gsap.to(overlay, {
