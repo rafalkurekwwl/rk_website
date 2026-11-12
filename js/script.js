@@ -374,31 +374,43 @@ function initMenuImageHover() {
 function initCustomCursor() {
   const cursorEl = document.querySelector('.custom-cursor');
   if (!cursorEl) return;
+  if (window.matchMedia('(pointer: coarse)').matches && !window.matchMedia('(any-pointer: fine)').matches) return;
   const interactiveElements = document.querySelectorAll('a, button, .modern-cta, .cookie-accept-button, .scrollbar-thumb, input[type="submit"], .showreel-trigger');
+  const exitEvents = ['scroll', 'wheel', 'touchmove', 'keydown'];
   let isPermanentlyDisabled = false;
 
   const disablePermanently = () => {
     if (isPermanentlyDisabled) return;
     isPermanentlyDisabled = true;
-    gsap.to(cursorEl, { opacity: 0, scale: 0, duration: 0.3, ease: 'power3.in' });
+    gsap.killTweensOf(cursorEl);
+    gsap.to(cursorEl, { opacity: 0, scale: 0, duration: 0.3, ease: 'power3.in', overwrite: true, onComplete: () => { cursorEl.style.display = 'none'; } });
     document.body.classList.remove('custom-cursor-active');
-    window.removeEventListener('scroll', disablePermanently);
+    exitEvents.forEach(type => window.removeEventListener(type, disablePermanently));
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mousemove', onFirstMove);
+    document.documentElement.removeEventListener('mouseleave', onLeave);
     interactiveElements.forEach(el => el.removeEventListener('mouseenter', disablePermanently));
   };
 
   const onMouseMove = (e) => gsap.set(cursorEl, { x: e.clientX, y: e.clientY });
   const onFirstMove = (e) => {
+    if (isPermanentlyDisabled) return;
     gsap.set(cursorEl, { x: e.clientX, y: e.clientY });
-    gsap.to(cursorEl, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' });
+    gsap.to(cursorEl, { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out', overwrite: true });
     document.body.classList.add('custom-cursor-active');
     window.removeEventListener('mousemove', onFirstMove);
     window.addEventListener('mousemove', onMouseMove);
   };
+  const onLeave = () => {
+    if (isPermanentlyDisabled) return;
+    gsap.to(cursorEl, { opacity: 0, duration: 0.2, overwrite: true });
+    window.removeEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousemove', onFirstMove);
+  };
 
   window.addEventListener('mousemove', onFirstMove);
-  window.addEventListener('scroll', disablePermanently, { once: true });
+  exitEvents.forEach(type => window.addEventListener(type, disablePermanently, { passive: true }));
+  document.documentElement.addEventListener('mouseleave', onLeave);
   interactiveElements.forEach(el => el.addEventListener('mouseenter', disablePermanently));
 
   const darkSections = document.querySelectorAll('.section-dark-bg');
