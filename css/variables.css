@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'DesignerSans';
-    src: url('../webfonts/DesignerSans.otf');
+    src: url('../webfonts/DesignerSans.woff2') format('woff2'), url('../webfonts/DesignerSans.otf') format('opentype');
     font-display: swap;
 }
 
