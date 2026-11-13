@@ -68,26 +68,30 @@ function initPreloader() {
   function finishWithDualMask() {
     pageWrapper.classList.add('is-visible');
 
-    try {
-      if (typeof initApp === 'function') initApp();
-      if (typeof initCookieBanner === 'function') initCookieBanner();
-    } catch (error) {
-      console.error("Błąd podczas inicjalizacji skryptów strony:", error);
-    }
+    const tl = gsap.timeline({
+      onComplete: () => {
+        preloader.style.display = 'none';
+      }
+    });
 
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      gsap.timeline({
-        onComplete: () => {
-          preloader.style.display = 'none';
+    tl.to(topLayer, {
+      clipPath: 'inset(0% 0% 100% 0%)',
+      duration: 0.6,
+      ease: 'power4.inOut'
+    })
+    .to(bottomLayer, {
+      clipPath: 'inset(0% 0% 100% 0%)',
+      duration: 0.45,
+      ease: 'power4.inOut',
+      onStart: () => {
+        try {
+          if (typeof initApp === 'function') initApp();
+          if (typeof initCookieBanner === 'function') initCookieBanner();
+        } catch (error) {
+          console.error("Błąd podczas inicjalizacji skryptów strony:", error);
         }
-      })
-      .fromTo(topLayer,
-        { clipPath: 'inset(0% 0% 0% 0%)' },
-        { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'power3.inOut' })
-      .fromTo(bottomLayer,
-        { clipPath: 'inset(0% 0% 0% 0%)' },
-        { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'power3.inOut' }, 0.18);
-    }));
+      }
+    }, '-=0.25');
   }
 }
 
