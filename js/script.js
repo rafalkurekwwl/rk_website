@@ -86,7 +86,7 @@ function initPreloader() {
         { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'power3.inOut' })
       .fromTo(bottomLayer,
         { clipPath: 'inset(0% 0% 0% 0%)' },
-        { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'power3.inOut' }, 0.18);
+        { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'power3.inOut' }, 0.4);
     }));
   }
 }
