@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka prywatności | Rafał Kurek</title>
+    <meta name="description" content="Polityka prywatności serwisu Rafał Kurek. Jakie dane zbieram, w jakim celu, jak długo je przechowuję i jakie prawa Ci przysługują.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="preload" href="webfonts/DesignerSans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset-and-typo.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/gallery-layered.css">
+</head>
+<body>
+
+    <div class="page-transition-overlay"></div>
+
+    <div class="preloader" style="--preloader-bg: #c1c1c1; --preloader-purple: #614697;">
+        <div class="preloader-layer preloader-layer--purple"></div>
+        <div class="preloader-layer preloader-layer--main">
+            <div class="preloader-content">
+                <div class="preloader-words">
+                    <span class="word active">INSIGHT</span>
+                    <span class="word">STRATEGY</span>
+                    <span class="word">CREATE</span>
+                    <span class="word">IMPACT</span>
+                </div>
+                <div class="preloader-status">
+                    <p class="czarne">Proszę czekać</p>
+                    <p class="czarne"><span id="percentage">0</span>%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-mask-container">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-black.svg" alt="Logo RK" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-mask-container logo-white-version">
+        <div class="logo-inner-wrapper">
+            <a href="/" aria-label="Strona główna">
+                <span class="logo-type logo-full">RAFAL_KUREK</span>
+                <img src="svg/logo-short-white.svg" alt="" class="logo-svg logo-short">
+            </a>
+        </div>
+    </div>
+
+    <div class="logo-text-container">
+        <p class="logo-descriptor"></p>
+    </div>
+
+    <div class="scroll-progress-indicator"></div>
+    <div class="scroll-progress-percentage">
+        <span id="scroll-percentage-value">0</span>%
+    </div>
+
+    <div class="custom-scrollbar">
+        <div class="scrollbar-thumb"></div>
+    </div>
+
+    <button class="menu-toggle-btn" aria-label="Przełącz nawigację" aria-controls="menu-overlay" aria-expanded="false">
+        <div class="menu-toggle-label-wrapper">
+            <div class="menu-toggle-label-inner">
+                <span class="menu-toggle-label-closed">MENU</span>
+                <span class="menu-toggle-label-open">WRÓĆ</span>
+            </div>
+        </div>
+    </button>
+
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-hidden="true">
+        <div class="menu-overlay-header">
+            <a href="/" aria-label="Strona główna">
+                <img src="svg/logo-short-white.svg" alt="Logo RK" class="menu-overlay-logo">
+            </a>
+        </div>
+        <nav class="menu-overlay-nav" aria-label="Nawigacja główna">
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="omnie.html">O mnie</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="menu-overlay-footer">
+            <p>Jestem Rafał. Od 20 lat projektuję marki, które pracują na wyniki i pozostają w pamięci.</p>
+        </div>
+    </div>
+        
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p class="cookie-text">
+                Ta strona używa ciasteczek.<br>
+                <a href="polityka-prywatnosci.html">Czytaj więcej.</a>
+            </p>
+            <button class="cookie-accept-button magnetic-item" id="cookieAcceptBtn">AKCEPTUJ</button>
+        </div>
+    </div>
+
+    <div class="logo-hover-cursor" aria-hidden="true">
+        <img src="smile.svg" alt="Uśmiechnięta ikona">
+    </div>
+    <div class="video-close-cursor" aria-hidden="true">
+        <span class="close-text">zamknij</span>
+    </div>
+
+    <div class="page-wrapper">
+        <header class="main-header">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="js-reveal-nav-item">Portfolio</a></li>
+                    <li><a href="omnie.html" class="js-reveal-nav-item">O Mnie</a></li>
+                    <li><a href="kontakt.html" class="js-reveal-nav-item">Kontakt</a></li>
+                </ul>
+                <div class="icon-mask-wrapper">
+                    <a href="#" class="nav-icon-link js-reveal-nav-item" aria-label="Link specjalny">
+                        <img src="svg/wow1.svg" class="icon-base" alt="">
+                        <img src="svg/wow2.svg" class="icon-hover" alt="">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="content clearfix">
+            <div id="hero"></div>
+
+            <div class="project-hero-container section section-dark-bg js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <section class="project-hero-title-section">
+                    <h1 class="project-title project-title--long">Polityka prywatności</h1>
+                    <p class="project-subtitle js-reveal-text">Ostatnia aktualizacja: <span class="policy-placeholder">01.01.2026</span></p>
+                </section>
+            </div>
+
+            <section data-header-text="POLITYKA" class="scroll-section section small section-light grid-row js-menu-trigger top160" data-logo-theme="dark">
+                <div class="sto_full policy">
+                    <div class="policy-note">
+                        <p>Dane oznaczone w ten sposób: <span class="policy-placeholder">przykładowe dane</span> są fikcyjne i do podmiany przed publikacją.</p>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth"></div>
+                        <div class="one_half policy-content">
+                            <p class="policy-lead">Szanuję Twoją prywatność. Poniżej wyjaśniam, jakie dane zbieram, po co, jak długo je przechowuję i jakie masz prawa. Krótko i konkretnie.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">01</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Administrator danych</h2>
+                            <p>Administratorem Twoich danych osobowych jest <span class="policy-placeholder">Jan Przykładowy, Przykładowa Firma Jan Przykładowy</span>, ul. <span class="policy-placeholder">Przykładowa 1/2, 00-000 Warszawa</span>, NIP <span class="policy-placeholder">000-000-00-00</span>, REGON <span class="policy-placeholder">000000000</span>.</p>
+                            <p>W sprawach dotyczących danych osobowych napisz na adres <span class="policy-placeholder">kontakt@przyklad.pl</span> lub zadzwoń: <span class="policy-placeholder">+48 000 000 000</span>.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">02</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Jakie dane zbieram</h2>
+                            <p>Zbieram tylko dane, które są potrzebne do działania strony i odpowiedzi na Twoje zapytanie:</p>
+                            <ul class="policy-list">
+                                <li>dane, które podajesz sam, pisząc do mnie: imię, adres e-mail, numer telefonu i treść wiadomości,</li>
+                                <li>dane techniczne zapisywane automatycznie w logach serwera: adres IP, data i godzina wizyty, odwiedzona podstrona, typ przeglądarki i system operacyjny, adres strony, z której trafiłeś.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">03</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Cele i podstawy prawne</h2>
+                            <p>Przetwarzam dane na podstawie RODO, czyli rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679:</p>
+                            <ul class="policy-list">
+                                <li>odpowiedź na zapytanie i przygotowanie oferty: art. 6 ust. 1 lit. b RODO (działania przed zawarciem umowy),</li>
+                                <li>realizacja umowy: art. 6 ust. 1 lit. b RODO,</li>
+                                <li>bezpieczeństwo i poprawne działanie strony: art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes),</li>
+                                <li>statystyki odwiedzin, jeśli wyrazisz zgodę: art. 6 ust. 1 lit. a RODO,</li>
+                                <li>obowiązki księgowe i podatkowe: art. 6 ust. 1 lit. c RODO.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">04</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Kontakt</h2>
+                            <p>Gdy piszesz do mnie e-mailem lub przez formularz, Twoje dane wykorzystuję wyłącznie do odpowiedzi i ewentualnych pytań uzupełniających. Nie dodaję Cię do newslettera i nie przekazuję danych do celów marketingowych.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item" id="cookies">
+                        <div class="one_fourth">
+                            <p class="policy-number">05</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Pliki cookie</h2>
+                            <p>Pliki cookie to małe pliki tekstowe zapisywane w Twojej przeglądarce. Strona korzysta z nich w dwóch celach:</p>
+                            <ul class="policy-list">
+                                <li><strong>Niezbędne.</strong> Zapamiętują Twój wybór w banerze cookie. Bez nich strona nie działa poprawnie.</li>
+                                <li><strong>Analityczne.</strong> Pomagają zrozumieć, jak korzystasz ze strony. Uruchamiam je tylko za Twoją zgodą.</li>
+                            </ul>
+                            <p>Możesz w każdej chwili ograniczyć lub wyłączyć pliki cookie w ustawieniach przeglądarki. Część funkcji strony może wtedy działać inaczej.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">06</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Narzędzia i treści zewnętrzne</h2>
+                            <p>Strona korzysta z usług zewnętrznych dostawców. Aby wyświetlić ich treści, dostawca musi poznać Twój adres IP:</p>
+                            <ul class="policy-list">
+                                <li>Fontshare (Indian Type Foundry): dostarcza krój pisma Satoshi,</li>
+                                <li><span class="policy-placeholder">Google Analytics (Google Ireland Ltd.)</span>: statystyki odwiedzin, tylko po wyrażeniu zgody, z anonimizacją adresu IP,</li>
+                                <li>Instagram i Behance: linki do moich profili. Po kliknięciu obowiązują zasady prywatności tych serwisów.</li>
+                            </ul>
+                            <p>Część dostawców może przetwarzać dane poza Europejskim Obszarem Gospodarczym. Odbywa się to na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">07</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Komu przekazuję dane</h2>
+                            <p>Twoje dane mogą trafić wyłącznie do podmiotów, które pomagają mi prowadzić działalność:</p>
+                            <ul class="policy-list">
+                                <li>dostawca hostingu: <span class="policy-placeholder">Przykładowy Hosting sp. z o.o.</span>,</li>
+                                <li>dostawca poczty e-mail: <span class="policy-placeholder">Przykładowa Poczta S.A.</span>,</li>
+                                <li>biuro rachunkowe, jeśli zawrzemy umowę: <span class="policy-placeholder">Przykładowe Biuro Rachunkowe</span>.</li>
+                            </ul>
+                            <p>Nie sprzedaję danych i nie udostępniam ich w celach marketingowych.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">08</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Jak długo przechowuję dane</h2>
+                            <ul class="policy-list">
+                                <li>korespondencja: do zakończenia rozmowy, a potem przez okres przedawnienia ewentualnych roszczeń,</li>
+                                <li>dane z umowy i faktur: przez okres wymagany przepisami podatkowymi, zwykle 5 lat od końca roku podatkowego,</li>
+                                <li>logi serwera: <span class="policy-placeholder">do 30 dni</span>,</li>
+                                <li>dane analityczne: <span class="policy-placeholder">14 miesięcy</span>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">09</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Twoje prawa</h2>
+                            <p>Masz prawo do:</p>
+                            <ul class="policy-list">
+                                <li>dostępu do swoich danych i otrzymania ich kopii,</li>
+                                <li>sprostowania danych nieprawidłowych,</li>
+                                <li>usunięcia danych lub ograniczenia ich przetwarzania,</li>
+                                <li>przeniesienia danych,</li>
+                                <li>sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie,</li>
+                                <li>cofnięcia zgody w dowolnym momencie, bez wpływu na wcześniejsze przetwarzanie.</li>
+                            </ul>
+                            <p>Aby skorzystać z tych praw, napisz na <span class="policy-placeholder">kontakt@przyklad.pl</span>. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa.</p>
+                        </div>
+                    </div>
+                    <div class="policy-item">
+                        <div class="one_fourth">
+                            <p class="policy-number">10</p>
+                        </div>
+                        <div class="one_half policy-content">
+                            <h2 class="h4">Zmiany polityki</h2>
+                            <p>Polityka może się zmienić, gdy zmienią się przepisy lub funkcje strony. Aktualna wersja jest zawsze dostępna na tej podstronie, a data na górze pokazuje ostatnią aktualizację.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scroll-section section-light js-color-section" data-bg-color="#fcfcfc" data-font-color="#090909" data-logo-theme="dark">
+                <div class="sto_full_end">
+                    <div class="one_half">
+                        <h2 class="h1 js-stylize-letters width20">
+                            Masz projekt, o którym chcesz porozmawiać?
+                        </h2>
+                    </div>
+                    <div class="one_half">
+                        <p>
+                            Napisz do mnie. Opowiedz, co planujesz. <br>Odpowiem w ciągu 24 godzin.
+                        </p>
+                        <a href="kontakt.html" class="liquid-button" aria-label="Przejdź do kontaktu">
+                            <span class="btn-icon"></span>
+                            <span class="btn-text">
+                                <span>Napisz do mnie</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="sto_footer">
+                        <div class="one_half bottomfooter">
+                            <img src="svg/logo_dark_1on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+                        <div class="one_half space-between-vertical">
+                            <img src="svg/logo_dark_2on2.svg" alt="Logo Rafał Kurek - stopka" class="logo-footer-two">
+                        </div>
+
+                        <div class="one_half top24">
+                            <p class="onefour">© 2025 WSZELKIE PRAWA ZASTRZEŻONE <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+                        </div>
+
+                        <div class="one_fourth footer-info-box top24 bottom24">
+                            <div class="align-bottom">
+                                <a href="https://www.instagram.com/rafalkurek_design/" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">INSTAGRAM</span>
+                                </a>
+                                <a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">
+                                    <span class="footer-icon icon-diagonal"></span>
+                                    <span class="footer-text">Behance</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="#hero" class="footer-link scroll-top js-scroll-to">
+                                    <span class="footer-icon-group">
+                                        <span class="footer-icon icon-up"></span>
+                                        <span class="footer-icon icon-up"></span>
+                                    </span>
+                                    <span class="footer-text">DO GÓRY</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/vendor/gsap.min.js" defer></script>
+    <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+    <script src="js/vendor/ScrollToPlugin.min.js" defer></script>
+    <script src="js/vendor/lenis.min.js" defer></script>
+    <script src="js/vendor/split-type.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+        <defs>
+            <filter id="goo-button">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="
+                    1 0 0 0 0  
+                    0 1 0 0 0  
+                    0 0 1 0 0  
+                    0 0 0 26 -18" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+</body>
+</html>
