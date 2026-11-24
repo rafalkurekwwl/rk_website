@@ -1907,6 +1907,10 @@ body.lightbox-is-open {
 .policy-note {
     width: 100%;
     flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap);
 }
 
 .policy-note p {
@@ -1919,26 +1923,15 @@ body.lightbox-is-open {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: var(--gap);
-    padding-top: var(--padding-top-s);
-    border-top: 1px solid #e2e2e2;
-}
-
-.policy-item:nth-of-type(2) {
-    padding-top: 0;
-    border-top: 0;
 }
 
 .policy-number {
     font-size: var(--font-xs);
     letter-spacing: 0.1rem;
     color: var(--gray-color-font);
-}
-
-.policy-content {
-    max-width: 65ch;
 }
 
 .policy-content h2 {
